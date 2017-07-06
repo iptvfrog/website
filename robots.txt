@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /images
+Disallow: /scripts
+Disallow: /stylesheets
+Disallow: /cancel.html
+Disallow: /cancel
+Disallow: /success
+Disallow: /success.html
+Disallow: /setup
+Disallow: /setup.html

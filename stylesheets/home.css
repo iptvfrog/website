@@ -1,0 +1,149 @@
+#mainsection {
+	width: 100%;
+	height: 100vh;
+	background-color: #F3AD27;
+	background-image: url("../images/background.jpg");
+	background-size: cover;
+	background-position: center;
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+	cursor: default;
+	z-index: 100;
+}
+
+#mainsection #logo {
+	height: 40vh;
+}
+
+#mainsection h1 {
+	color: white;
+	padding: 0px;
+	margin: 0px;
+	font-size: 10vh;
+}
+
+#mainsection h3 {
+	color: white;
+}
+
+#mainsection a {
+	text-decoration: none;
+	color: white;
+	font-size: 125%;
+	border: 2px solid white;
+	padding: 10px;
+	border-radius: 10px;
+	transition: ease all 0.5s;
+}
+
+#mainsection a:hover {
+	color: #F3AD27;
+	background-color: white;
+}
+
+#about table tr td {
+	width: 50%;
+	vertical-align: text-top;
+	padding:20px 50px;
+	line-height: 1.5;
+}
+
+#channels #note {
+	width: 70%;
+	margin: auto;
+	font-size: 60%;
+	font-style: italic;
+}
+
+#channels table {
+	width: 75%;
+	text-align: center;
+	margin: auto;
+}
+
+#channels table tr td {
+	vertical-align: text-top;
+	width: 33%;
+	padding-top: 20px;
+	line-height: 2;
+}
+
+#order * {
+	transition: all ease 0.5s;
+}
+
+#order #restartOrderBtn {
+	display:none;
+	background-color:#EF614E;
+	color:white;
+	border:none;
+	padding:5px 10px;
+	cursor:pointer;
+	margin-bottom:10px;
+	border-radius:1000px;
+}
+
+#order table {
+	width:80%;
+}
+
+#order table tr td {
+	text-align:center;
+}
+
+#order table tr td #newrecommend {
+	color:yellow;
+}
+
+#order table tr td button, #order tr td.btn {
+	width:40%;
+	padding:20px;
+	background:none;
+	color:white;
+	border:2px solid white;
+	cursor:pointer;
+	/*display:inline;*/
+}
+
+#order table tr td button:hover, #order tr td.btn:hover {
+	background-color:white;
+	color:#407DBC;
+}
+
+#order button h2, #order tr td.btn h2 {
+	padding:0px;
+	margin:0px;
+}
+
+#order button:disabled, #order tr td.btn:disabled {
+	display:none;
+}
+
+#order .input {
+	background-color: #417EBD;
+	background-color: rgba(255,255,255,0);
+	border: 2px solid white;
+	padding: 10px;
+	color: white;
+	font-size: 120%;
+}
+
+#order .input:hover, #order .input:focus {
+	background-color: rgba(255,255,255,0.25);
+}
+
+h3 {
+	text-align: center;
+}
+
+#order #warnings div {
+	font-size: 80%;
+	padding: 10px;
+	background-color: white;
+	color: #417EBD;
+}
+
+#orderIPTVCustomerType, #orderIPTVOrderLength, #orderBoxCountry, #orderPhoneNumber, #orderPlace {
+	display: none;
+}

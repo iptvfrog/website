@@ -1,0 +1,58 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	font-family: sans-serif;
+}
+
+#mainsection {
+	width: 100%;
+	height: 100vh;
+	background-color: #BBD227;
+	background-image: url("../images/backgrounds.jpg");
+	background-size: cover;
+	background-position: center;
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+	cursor: default;
+	z-index: 100;
+}
+
+#mainsection #logo {
+	height: 40vh;
+}
+
+#mainsection h1 {
+	color: white;
+	padding: 0px;
+	margin: 0px;
+	font-size: 10vh;
+}
+
+div {
+	background-color: white;
+	height: 5px;
+	border-radius: 10px;
+	width: 30%;
+	margin: auto;
+	margin-top: 10px;
+}
+
+#mainsection h3 {
+	color: white;
+}
+
+#mainsection a {
+	text-decoration: none;
+	color: white;
+	font-size: 125%;
+	border: 2px solid white;
+	padding: 10px;
+	border-radius: 10px;
+	transition: ease all 0.5s;
+}
+
+#mainsection a:hover {
+	color: #BBD227;
+	background-color: white;
+}

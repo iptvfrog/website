@@ -1,0 +1,194 @@
+#splash {
+	width:100%;
+	height:100vh;
+	position:fixed;
+	top:0px;
+	left:0px;
+	background-color:black;
+	color:white;
+	z-index:100000;
+	text-align:center;
+}
+
+@keyframes dots {
+	0% { content: ""; }
+	20% { content: "."; }
+	40% { content: ".."; }
+	60% { content: "..."; }
+	80% { content: "..."; }
+	100% { content: ""; }
+}
+
+#splash #loadingdots:after {
+	animation: dots 1s linear infinite;
+}
+
+#splash input {
+	background-color: black;
+	border: none;
+	border-bottom: 1px solid black;
+	color: white;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+#splash input:focus {
+	border-bottom: 1px solid white;
+}
+
+#splash input.error {
+	color: red;
+	border-bottom: 1px solid red;
+}
+
+#splash button {
+	background-color: #4CAF50;
+	border: none;
+	cursor: pointer;
+	width: 30px;
+	height: 30px;
+	color: black;
+	border-radius: 100px;
+}
+
+#splash #numberNote {
+	font-size: 70%;
+	font-style: italic;
+}
+
+#splash #enterMAC {
+	display: none;
+	width: 80%;
+	margin: auto;
+}
+
+body {
+	margin: 0px;
+	padding: 0px;
+	font-family: sans-serif;
+	background-color: #417EBD;
+	background-image: url("../images/water.jpg");
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.code {
+	font-family:monospace;
+	font-weight:bold;
+	color:black;
+}
+
+#mainsection {
+	width: 100%;
+	height: 100vh;
+	background-color: #148114;
+	background-image: url("../images/backgroundset.jpg");
+	background-size: cover;
+	background-position: center;
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+	cursor: default;
+	z-index: 100;
+}
+
+#mainsection #logo {
+	height: 40vh;
+}
+
+#mainsection h1 {
+	color: white;
+	padding: 0px;
+	margin: 0px;
+	font-size: 10vh;
+}
+
+#mainsection h3 {
+	color: white;
+}
+
+#mainsection a {
+	text-decoration: none;
+	color: white;
+	font-size: 125%;
+	border: 2px solid white;
+	padding: 10px;
+	border-radius: 10px;
+	transition: ease all 0.5s;
+}
+
+#mainsection a:hover {
+	color: #148114;
+	background-color: white;
+}
+
+#downloading, #help {
+	width: 70%;
+	margin: auto;
+	color: white;
+	cursor: default;
+}
+
+#help {
+	text-align:center;
+}
+
+#downloading h1, #help h1 {
+	color: white;
+	text-align: center;
+	padding: 0px;
+	font-size: 175%;
+}
+
+#stbconfig {
+	width: 100%;
+	background-color: white;
+	color: #417EBD;
+	padding: 10px 0px 30px 0px;
+	cursor: default;
+	margin-top:20px;
+}
+
+#stbconfig h1 {
+	text-align: center;
+	font-size: 175%;
+	padding: 0px;
+}
+
+#stbconfig ol {
+	width:70%;
+	margin:auto;
+}
+
+#stbconfig #note {
+	width: 80%;
+	margin: auto;
+	background-color: #CCCCCC;
+	padding: 10px;
+	color: black;
+}
+
+footer {
+	width: 100%;
+	background-color: #3D3D3D;
+	color: white;
+	text-align: center;
+	padding: 10px 0px;
+	cursor: default;
+}
+
+@media print {
+	body {
+		background:none !important;
+	}
+	#splash, #mainsection, img, footer {
+		display:none !important;
+	}
+	ol, #downloading, #help {
+		width: 100% !important;
+	}
+	* {
+		color: black !important;
+	}
+}

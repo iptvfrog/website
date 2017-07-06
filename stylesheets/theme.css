@@ -1,0 +1,56 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	font-family: sans-serif;
+	background-color: #417EBD;
+	background-image: url("../images/water.jpg");
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.white h1, .blue h1 {
+	text-align: center;
+	font-size: 175%;
+	padding: 0px;
+}
+
+.white {
+	width: 100%;
+	background-color: white;
+	color: #417EBD;
+	padding: 10px 0px 30px 0px;
+	cursor: default;
+	text-align:center;
+}
+
+.white .wbreak {
+	display: none;
+}
+
+.blue {
+	width: 70%;
+	margin: auto;
+	color: white;
+	cursor: default;
+}
+
+.blue h1 {
+	color: white;
+	text-align: center;
+	padding: 0px;
+	font-size: 175%;
+}
+
+.blue .bbreak {
+	display: none;
+}
+
+footer {
+	width: 100%;
+	background-color: #3D3D3D;
+	color: white;
+	text-align: center;
+	padding: 10px 0px;
+	cursor: default;
+}

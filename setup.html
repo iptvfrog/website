@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Setting Up IPTV Frog</title>
+		<link rel="stylesheet" type="text/css" href="stylesheets/setup.css" />
+		<link rel="icon" type="image/png" href="images/icon.png" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(){
+			  // Add smooth scrolling to all links
+			  $("a").on('click', function(event) {
+
+				// Make sure this.hash has a value before overriding default behavior
+				if (this.hash !== "") {
+				  // Prevent default anchor click behavior
+				  event.preventDefault();
+
+				  // Store hash
+				  var hash = this.hash;
+
+				  // Using jQuery's animate() method to add smooth page scroll
+				  // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+				  $('html, body').animate({
+					scrollTop: $(hash).offset().top
+				  }, 800, function(){
+
+					// Add hash (#) to URL when done scrolling (default click behavior)
+					window.location.hash = hash;
+				  });
+				} // End if
+			  });
+			});
+		</script>
+	</head>
+	<body onload="loadPage()">
+		<table id="splash">
+			<tr>
+				<td>
+					<noscript>
+						<style>
+							#splash {
+								background-color: #EA4335;
+							}
+							#loadingtitle,#mainsection,#downloading,#stbconfig,#help,footer {
+								display: none;
+							}
+						</style>
+						<h1>Javascript required!</h1>
+						<h3>Please enable Javascript on your browser and reload the page...</h3>
+					</noscript>
+					<h1 id="loadingtitle">Fetching account data<span id="loadingdots"></span></h1>
+					<h3 id="loadingtext"></h3>
+					<div id="enterMAC">
+						<fieldset id="macAddressInput">
+							<legend>Enter Your MAC Address</legend>
+							<input type="text" maxlength="2" size="2" id="mac1" placeholder="XX" /> :
+							<input type="text" maxlength="2" size="2" id="mac2" placeholder="XX" /> :
+							<input type="text" maxlength="2" size="2" id="mac3" placeholder="XX" /> :
+							<input type="text" maxlength="2" size="2" id="mac4" placeholder="XX" /> :
+							<input type="text" maxlength="2" size="2" id="mac5" placeholder="XX" /> :
+							<input type="text" maxlength="2" size="2" id="mac6" placeholder="XX" />
+							<button onclick="submitMAC()">></button>
+						</fieldset>
+						<h3>OR</h3>
+						<fieldset id="phoneNumberInput">
+							<legend>Enter Your Phone Number</legend>
+							(<input type="text" maxlength="3" size="3" id="phone1" placeholder="###" />)
+							<input type="text" maxlength="3" size="3" id="phone2" placeholder="###" /> -
+							<input type="text" maxlength="4" size="4" id="phone3" placeholder="####" />
+							<button onclick="submitPhone()">></button>
+							<br>
+							<span id="numberNote">*** Must be the phone number you provided with your purchase ***</span>
+						</fieldset>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<table id="mainsection">
+			<tr>
+				<td>
+					<img src="images/logo.png" alt="IPTV Frog" id="logo" />
+					<h1>SETTING UP YOUR IPTV SERVICE</h1>
+					<center><img src="images/break.png" alt="--------------------" class="break" /></center>
+					<h3>READ OUR STEP-BY-STEP INSTRUCTIONS TO SETUP YOUR IPTV SERVICE</h3>
+					<a href="#downloading">&darr; Continue To Setup &darr;</a>
+					<a href="javascript:window.print()">&#128438; Print For Later &#128438;</a>
+				</td>
+			</tr>
+		</table>
+		<section id="downloading">
+			<h1>DOWNLOADING STB EMULATOR</h1>
+			<center><img src="images/break.png" alt="--------------------" class="break" /></center>
+			<ol>
+				<li>Open Kodi.</li>
+				<li>Scroll to Programs on the Kodi menu bar.</li>
+				<li>Open the APK Downloader.</li>
+				<li>Select Android.</li>
+				<li>Go to JayTech Apps.</li>
+				<li>Select the latest version of the STB Emulator.</li>
+				<li>Select Download.</li>
+				<li>When the download is complete, select Install.</li>
+				<li>When the installation is complete, select Done.</li>
+				<li>Exit Kodi and return to your Android box's home screen.</li>
+			</ol>
+			<p style="text-align:center;">Don't have the APK Downloader or Kodi?<br>
+			No worries! The STB Emulator can be downloaded from the Google Play store.</p>
+		</section>
+		<section id="stbconfig">
+			<h1>CONFIGURING STB EMULATOR</h1>
+			<center><img src="images/breakalt.png" alt="--------------------" class="break" /></center>
+			<ol>
+				<li>Open the STB Emulator.</li>
+				<li>When it opens, press the menu key on your remote (looks like a list).</li>
+				<li>From the drop-down menu that appears, select Settings.</li>
+				<li>From the sidebar, select Profiles.</li>
+				<li>If there are no profiles listed on your program, press the Add Profile button. If there is a profile listed, select it.</li>
+				<li>Now go into the Portal Settings.</li>
+				<li>From the portal settings, select the Portal URL.</li>
+				<li>Press the return key on your remote to hide the onscreen keyboard.</li>
+				<li>Press and hold the right arrow key on your remote to move the text cursor to the end of the URL.</li>
+				<li>Press the OK button on your remote to bring back the onscreen keyboard.</li>
+				<li>Erase the existing URL by pressing and holding the backspace button on the onscreen keyboard on your remote.</li>
+				<li>Now type <span class="code">http://crowntv.pw</span> into the text box.</li>
+				<li>Press the return key on the remote to hide the onscreen keyboard.</li>
+				<li>Press Ok on the text box.</li>
+				<li>Press the return key on the remote to return to the profile settings screen.</li>
+				<li>Now select the STB Configuration settings.</li>
+				<li>Open the MAC-address setting.</li>
+				<li>Press the return key on your remote to hide the onscreen keyboard.</li>
+				<li>Press and hold the right arrow key on your remote to move the text cursor to the end of the MAC address.</li>
+				<li>Press the OK button on your remote to bring back the onscreen keyboard.</li>
+				<li>Erase the existing MAC address by pressing and holding the backspace button on the onscreen keyboard on your remote.</li>
+				<li>Now type <span class="code macadd">[Your MAC Address]</span> into the text box.</li>
+				<li>Press the return key on the remote to hide the onscreen keyboard.</li>
+				<li>Press Ok on the text box.</li>
+				<li>Repeatedly press the return key on the remote until you return to the STB Emulator main menu.</li>
+				<li>Press the menu key on your remote.</li>
+				<li>Select Exit from the drop-down menu to close the STB Emulator.</li>
+				<li>Reopen the STB Emulator and your TV menu should now display.</li>
+			</ol><br>
+			<p id="note"><b>NOTE: </b> If you're account has not been activated yet, you will be asked for login information. This is normal and cannot be bypassed until your account has been activated on our end. This can take up to two business days, after which point your IPTV will automatically start working.</p>
+		</section>
+		<section id="help">
+			<h1>NEED HELP?</h1>
+			<center><img src="images/break.png" alt="--------------------" class="break" /></center>
+			<p>Email us at iptvfrog@gmail.com for more assistance.</p>
+		</section>
+		<footer>
+			Copyright &copy; 2017 IPTV Frog &ndash; All rights reserved
+		</footer>
+		<script src="scripts/setup.js"></script>
+	</body>
+</html>
