@@ -69,7 +69,7 @@
 	line-height: 2;
 }
 
-#order * {
+#order *, #instructions * {
 	transition: all ease 0.5s;
 }
 
@@ -96,17 +96,17 @@
 	color:yellow;
 }
 
-#order table tr td button, #order tr td.btn {
+#order table tr td button, #order tr td.btn, #instructions a {
 	width:40%;
 	padding:20px;
 	background:none;
 	color:white;
 	border:2px solid white;
 	cursor:pointer;
-	/*display:inline;*/
+	text-decoration:none;
 }
 
-#order table tr td button:hover, #order tr td.btn:hover {
+#order table tr td button:hover, #order tr td.btn:hover, #instructions a:hover {
 	background-color:white;
 	color:#407DBC;
 }
@@ -147,3 +147,12 @@ h3 {
 #orderIPTVCustomerType, #orderIPTVOrderLength, #orderBoxCountry, #orderPhoneNumber, #orderPlace {
 	display: none;
 }
+
+#instructions {
+	text-align:center;
+ }
+ 
+ #instructions h2 {
+	box-sizing:border-box;
+	margin:40px 0px;
+ }
