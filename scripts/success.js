@@ -18,7 +18,11 @@ if (mac != '') {
 	document.getElementsByTagName('a')[1].href += '?mac=' + mac;
 }
 
-//var customer = getCookie('order');
-//if (customer != 'new') {
-//	document.getElementsByTagName('a')[1].style.display = 'none';
-//}
+var customer = getCookie('order');
+if (customer != 'new') {
+	document.getElementsByTagName('a')[1].style.display = 'none';
+}
+
+if (mac == '') {
+	document.getElementsByTagName('a')[1].style.display = 'inline';
+}
