@@ -54,3 +54,19 @@ footer {
 	padding: 10px 0px;
 	cursor: default;
 }
+
+div#importantnote {
+	background-color:#EA4335;
+	color:white;
+	width:100%;
+	position:fixed;
+	top:0px;
+	left:0px;
+	text-align:center;
+	padding:10px;
+	z-index:2;
+}
+
+div#importantnote b {
+	text-transform:uppercase;
+}
