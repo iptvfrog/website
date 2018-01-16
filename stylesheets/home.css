@@ -106,7 +106,7 @@
 	text-decoration:none;
 }
 
-#order table tr td button:hover, #order tr td.btn:hover, #instructions a:hover {
+#order table tr td button:not([disabled]):hover, #order tr td.btn:not([disabled]):hover, #instructions a:not([disabled]):hover {
 	background-color:white;
 	color:#407DBC;
 }
@@ -117,7 +117,9 @@
 }
 
 #order button:disabled, #order tr td.btn:disabled {
-	display:none;
+	color:#BFBFBF;
+	border:2px solid #BFBFBF;
+	cursor:not-allowed;
 }
 
 #order .input {
@@ -144,7 +146,7 @@ h3 {
 	color: #417EBD;
 }
 
-#orderIPTVCustomerType, #orderIPTVOrderLength, #orderBoxCountry, #orderPhoneNumber, #orderPlace {
+#orderIPTVCustomerType, #orderIPTVOrderLength, #orderBoxCountry, #orderPhoneNumber, #orderPlace, #orderPromoCode {
 	display: none;
 }
 

@@ -49,18 +49,6 @@ function inputOrderIPTVLength(selection) {
 	document.getElementById('orderPhoneNumber').style.display = 'block';
 }
 
-function inputOrderBoxLocation(selection) {
-	if (selection == 'usa') {
-		document.getElementById('orderProcessingId').value = 'VDB6N6BYQZGSU';
-	} else if (selection == 'intl') {
-		document.getElementById('orderProcessingId').value = 'VPGQTMPXNJUYS';
-	} else {
-		return;
-	}
-	document.getElementById('orderBoxCountry').style.display = 'none';
-	document.getElementById('orderPhoneNumber').style.display = 'block';
-}
-
 function inputPhoneNumber() {
 	var phone = document.getElementById('phonenumberinput').value;
 	var orderCode = document.getElementById('ordercode');
@@ -68,9 +56,34 @@ function inputPhoneNumber() {
 	var mac = '00:1A:79:' + phone.charAt(7) + phone.charAt(8) + ':' + phone.charAt(10) + phone.charAt(11) + ':' + phone.charAt(12) + phone.charAt(13);
 	document.cookie = 'mac=' + mac + '; path=/success';
 	document.getElementById('orderPhoneNumber').style.display = 'none';
+	document.getElementById('orderPromoCode').style.display = 'block';
+	document.getElementById('orderConfirmMessage').textContent = 'Are you sure that you would like to ' + confirmOrderType + confirmOrderLength + '?';
+}
+
+function inputPromoCode() {
+	var promocode = document.getElementById('promocodeinput').value;
+	var orderCode = document.getElementById('ordercode');
+	orderCode.value = orderCode.value + ' Promo: ' + promocode;
+	document.getElementById('orderPromoCode').style.display = 'none';
 	document.getElementById('restartOrderBtn').style.display = 'none';
 	document.getElementById('orderPlace').style.display = 'block';
-	document.getElementById('orderConfirmMessage').textContent = 'Are you sure that you would like to ' + confirmOrderType + confirmOrderLength + '?';
+}
+
+function skipPromoCode() {
+	document.getElementById('orderPromoCode').style.display = 'none';
+	document.getElementById('restartOrderBtn').style.display = 'none';
+	document.getElementById('orderPlace').style.display = 'block';
+}
+
+function promocodeFormat(input) {
+	input = input.trim().toLowerCase();
+	input = input.substring(0,12);
+	if (input.length > 7 && input.length < 13) {
+		document.getElementById('promocodeready').disabled = false;
+	} else {
+		document.getElementById('promocodeready').disabled = true;
+	}
+	return input;
 }
 
 function phoneFormat(input){
@@ -102,13 +115,15 @@ function restartOrder() {
 	document.getElementById('orderTypeChoice').style.display = 'none';
 	document.getElementById('orderIPTVCustomerType').style.display = 'none';
 	document.getElementById('orderIPTVOrderLength').style.display = 'none';
-	//document.getElementById('orderBoxCountry').style.display = 'none';
 	document.getElementById('orderPhoneNumber').style.display = 'none';
+	document.getElementById('orderPromoCode').style.display = 'none';
 	document.getElementById('orderPlace').style.display = 'none';
 	document.getElementById('restartOrderBtn').style.display = 'none';
 	document.getElementById('orderTypeChoice').style.display = 'block';
 	document.getElementById('phonenumberinput').value = '';
 	document.getElementById('phoneNumberReady').disabled = true;
+	document.getElementById('promocodeinput').value = '';
+	document.getElementById('promocodeready').disabled = true;
 	document.getElementById('ordercode').value = '';
 }
 
@@ -119,5 +134,10 @@ document.getElementById('phonenumberinput').addEventListener('keyup',function(ev
         var phoneNumber = document.getElementById('phonenumberinput');
         var charCode = (evt.which) ? evt.which : evt.keyCode;
         phoneNumber.value = phoneFormat(phoneNumber.value);
-		genOrderCode();
+});
+
+document.getElementById('promocodeinput').addEventListener('keyup',function(evt){
+        var promocode = document.getElementById('promocodeinput');
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        promocode.value = promocodeFormat(promocode.value);
 });

@@ -273,6 +273,28 @@
 						</tr>
 					</table>
 					
+					<table id="orderPromoCode">
+						<tr>
+							<td colspan="2">
+								<h3>Do you have a promocode? Enter it here:</h3>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<input type="text" maxlength="14" id="promocodeinput" class="input"><br><br>
+								<button onclick="skipPromoCode()" id="skippromocode">
+									<h2>Skip X</h2>
+								</button>
+								<button onclick="inputPromoCode()" id="promocodeready" disabled>
+									<h2>Next ></h2>
+								</button><br><br>
+								<div id="warnings">
+									<div id="hideForRenewIPTV">*** Promocodes are subject to verification. Invalid promocodes will not be applied to the order. Promocodes will not appear on your order receipt. ***</div>
+								</div>
+							</td>
+						</tr>
+					</table>
+					
 					<table id="orderPlace">
 						<tr>
 							<td colspan="2">
@@ -305,7 +327,7 @@
 									<option value="3 Months">3 Months $27.00 USD</option>
 								</select>
 								<input type="hidden" name="on1" value="Phone Number">
-								<input type="text" id="ordercode" name="os1" style="display:none;" readonly>
+								<input type="text" id="ordercode" name="os1" readonly>
 								<input type="hidden" name="currency_code" value="USD">
 								<input type="image" src="" border="0" name="submit" alt="Order Now" id="ordernow" style="display:none;">
 								<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
