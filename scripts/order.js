@@ -21,11 +21,13 @@ function inputOrderIPTVCustomerType(selection) {
 		confirmOrderType = ' order an IPTV subscription for';
 		document.getElementById('hideForNewIPTV').style.display = 'none';
 		document.getElementById('newrecommend').style.display = 'inline';
+		ga('gtag_UA_115185417_1.send', 'event', 'Order Type', 'Click', 'New customer');
 	} else if (selection == 'renew') {
 		var customer = 'EXISTING';
 		document.getElementById('hideForRenewIPTV').style.display = 'none';
 		document.getElementById('newrecommend').style.display = 'none';
 		confirmOrderType = ' renew your IPTV subscription for an additional';
+		ga('gtag_UA_115185417_1.send', 'event', 'Order Type', 'Click', 'Renewing customer');
 	} else {
 		return;
 	}
@@ -40,9 +42,11 @@ function inputOrderIPTVLength(selection) {
 	if (selection == 'one') {
 		document.getElementById('iptvduration').value = '1 Month';
 		confirmOrderLength = ' one month';
+		ga('gtag_UA_115185417_1.send', 'event', 'Order Duration', 'Click', '1 month');
 	} else if (selection == 'three') {
 		document.getElementById('iptvduration').value = '3 Months';
 		confirmOrderLength = ' three months';
+		ga('gtag_UA_115185417_1.send', 'event', 'Order Duration', 'Click', '3 months');
 	} else {
 		return;
 	}
@@ -68,12 +72,15 @@ function inputPromoCode() {
 	document.getElementById('orderPromoCode').style.display = 'none';
 	document.getElementById('restartOrderBtn').style.display = 'none';
 	document.getElementById('orderPlace').style.display = 'block';
+	ga('gtag_UA_115185417_1.send', 'event', 'Order Promocode', 'Click', 'Skipped');
+	ga('gtag_UA_115185417_1.send', 'event', 'Order Promocode Info', 'Click', promocode);
 }
 
 function skipPromoCode() {
 	document.getElementById('orderPromoCode').style.display = 'none';
 	document.getElementById('restartOrderBtn').style.display = 'none';
 	document.getElementById('orderPlace').style.display = 'block';
+	ga('gtag_UA_115185417_1.send', 'event', 'Order Promocode', 'Click', 'Entered');
 }
 
 function promocodeFormat(input) {
@@ -109,6 +116,7 @@ function phoneFormat(input){
 }
 
 function submitOrder() {
+	ga('gtag_UA_115185417_1.send', 'event', 'Order', 'Click', 'Order completed');
 	document.getElementById('submitbutton').click();
 }
 
@@ -126,6 +134,7 @@ function restartOrder() {
 	document.getElementById('promocodeinput').value = '';
 	document.getElementById('promocodeready').disabled = true;
 	document.getElementById('ordercode').value = '';
+	ga('gtag_UA_115185417_1.send', 'event', 'Order', 'Click', 'Order restarted');
 }
 
 var confirmOrderType = '';
