@@ -6,7 +6,7 @@ function inputOrderType(selection) {
 	} else if (selection == 'iptv') {
 		var boxDisplay = 'orderIPTVCustomerType';
 		document.getElementById('orderProcessingId').value = 'D39R66RL8YPZ6';
-		ga('send', 'event', 'Order', 'Click', 'Order started');
+		ga('iptvFrogTracker.send', 'event', 'Order', 'Click', 'Order started');
 	} else {
 		return;
 	}
