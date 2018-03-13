@@ -8,3 +8,4 @@ Disallow: /success
 Disallow: /success.html
 Disallow: /setup
 Disallow: /setup.html
+Disallow: /download
