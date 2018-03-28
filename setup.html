@@ -5,6 +5,7 @@
 		<link rel="stylesheet" type="text/css" href="stylesheets/setup.css" />
 		<link rel="stylesheet" type="text/css" href="stylesheets/theme.css" />
 		<link rel="icon" type="image/png" href="images/icon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115185417-1"></script>
@@ -57,7 +58,11 @@
 						<h1>Javascript required!</h1>
 						<h3>Please enable Javascript on your browser and reload the page...</h3>
 					</noscript>
-					<h1 id="loadingtitle">Fetching account data<span id="loadingdots"></span></h1>
+					<div id="loadingtitle">
+						<div class="loading_bar" style="animation-delay:0s"></div>
+						<div class="loading_bar" style="animation-delay:0.2s"></div>
+						<div class="loading_bar" style="animation-delay:0.4s"></div>
+					</div>
 					<h3 id="loadingtext"></h3>
 					<div id="enterMAC">
 						<fieldset id="macAddressInput">
@@ -84,6 +89,43 @@
 				</td>
 			</tr>
 		</table>
+		<table id="packageType">
+			<tr>
+				<td>
+					<noscript>
+						<style>
+							#splash {
+								background-color: #EA4335;
+							}
+							#loadingtitle,#mainsection,#downloading,#stbconfig,#help,footer {
+								display: none;
+							}
+						</style>
+						<h1>Javascript required!</h1>
+						<h3>Please enable Javascript on your browser and reload the page...</h3>
+					</noscript>
+					<h1>Which subscription package would you like to read instructions for?</h1>
+					<div class="packagecontainer">
+						<div class="package bluefrog" onclick="loadURL('blue')">
+							<img src="images/bluefrog.png"/>
+							<h1>Blue Frog</h1>
+						</div>
+						<div class="package yellowfrog" onclick="loadURL('yellow')">
+							<img src="images/yellowfrog.png"/>
+							<h1>Yellow Frog</h1>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<header id="frogselection">
+			View setup instructions for the 
+			<select id="instructionsfrog" onchange="changePortal()">
+				<option id="frogselectionblue" value="blue">Blue Frog</option>
+				<option id="frogselectionyellow" value="yellow">Yellow Frog</option>
+			</select>
+			subscription
+		</header>
 		<table id="mainsection">
 			<tr>
 				<td>
@@ -92,8 +134,8 @@
 					<center><img src="images/break.png" alt="--------------------" class="break" /></center>
 					<h3>READ OUR STEP-BY-STEP INSTRUCTIONS TO SETUP YOUR IPTV SERVICE</h3>
 					<a href="#downloading">&darr; Continue To Setup &darr;</a>
-					<a href="#video">&#128250; Watch Video &#128250;</a>
-					<a href="javascript:window.print()" onclick="ga('gtag_UA_115185417_1.send', 'event', 'Instructions', 'Click', 'Printing');">&#128438; Print For Later &#128438;</a>
+					<a href="#video" id="videobutton">&#128250; Watch Video &#128250;</a>
+					<a href="javascript:window.print()" id="print" onclick="ga('gtag_UA_115185417_1.send', 'event', 'Instructions', 'Click', 'Printing');">&#128438; Print For Later &#128438;</a>
 				</td>
 			</tr>
 		</table>
@@ -115,8 +157,8 @@
 				<li>When the installation is complete, select Done.</li>
 				<li>Exit Kodi and return to your Android box's home screen.</li>
 			</ol>
-			<p style="text-align:center;">Don't have the APK Downloader or Kodi?<br>
-			No worries! The STB Emulator can be downloaded from the Google Play store.</p>
+			<p style="text-align:center;"><b>Don't have the APK Downloader or Kodi?</b><br>
+			No worries! The STB Emulator can be downloaded directly from <a target="_blank" href="http://iptvfrog.com/download/stb">our IPTV Frog server</a>.</p>
 		</section>
 		<section id="stbconfig" class="white">
 			<h1>CONFIGURING STB EMULATOR</h1>
@@ -129,13 +171,20 @@
 				<li>After it opens, press the Configure Application button <b><u>OR</u></b> press the menu key on your remote (looks like a list) and select Settings from the drop down menu that appears.</li>
 				<li>From the sidebar, select Profiles.</li>
 				<li>If there are no profiles listed on your program, press the Add Profile button. If there is a profile listed, select it.</li>
-				<li>Now go into the Portal Settings.</li>
+				<li>Now in the profile settings, select Profile Name.</li>
+				<li>Press the return key on your remote to hide the onscreen keyboard.</li>
+				<li>Press and hold the right arrow key on your remote to move the text cursor to the end of the name.</li>
+				<li>Press the OK button on your remote to bring back the onscreen keyboard.</li>
+				<li>Erase the existing name by pressing and holding the backspace button on the onscreen keyboard on your remote.</li>
+				<li>Now type <span class="code profilename">Blue IPTV Frog</span> into the text box.</li>
+				<li>Press the return key on the remote to hide the onscreen keyboard.</li>
+				<li>Press Ok on the text box.</li>
 				<li>From the portal settings, select the Portal URL.</li>
 				<li>Press the return key on your remote to hide the onscreen keyboard.</li>
 				<li>Press and hold the right arrow key on your remote to move the text cursor to the end of the URL.</li>
 				<li>Press the OK button on your remote to bring back the onscreen keyboard.</li>
 				<li>Erase the existing URL by pressing and holding the backspace button on the onscreen keyboard on your remote.</li>
-				<li>Now type <span class="code">http://ez4u.pw</span> into the text box.</li>
+				<li>Now type <span class="code portalurl">http://ez4u.pw</span> into the text box.</li>
 				<li>Press the return key on the remote to hide the onscreen keyboard.</li>
 				<li>Press Ok on the text box.</li>
 				<li>Press the return key on the remote to return to the profile settings screen.</li>
@@ -160,7 +209,7 @@
 			<center>
 				<img src="images/breakalt.png" alt="--------------------" class="break bbreak" />
 				<img src="images/break.png" alt="--------------------" class="break wbreak" /><br>
-				<iframe src="https://drive.google.com/file/d/1mQpwHcwhKQ9c5O1KxzPOu7SS9771Ri6q/preview" width="700" height="384"></iframe><br><br>
+				<iframe src="https://drive.google.com/file/d/1mQpwHcwhKQ9c5O1KxzPOu7SS9771Ri6q/preview" style="max-width:700px;" width="100%" height="384"></iframe><br><br>
 				</center>
 		</section>
 		<section id="help" class="white">

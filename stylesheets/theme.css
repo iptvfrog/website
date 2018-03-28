@@ -1,3 +1,9 @@
+:root {
+	--red-color:#C5000B;
+	--yellow-color:#FEBA00;
+	--blue-color:#0000FE;
+}
+
 body {
 	margin: 0px;
 	padding: 0px;
@@ -9,6 +15,12 @@ body {
 	background-attachment: fixed;
 }
 
+section.white, section.blue {
+	width:100%;
+	box-sizing:border-box;
+	padding:10px 15% 30px 15%;
+}
+
 .white h1, .blue h1 {
 	text-align: center;
 	font-size: 175%;
@@ -16,21 +28,22 @@ body {
 }
 
 .white {
-	width: 100%;
 	background-color: white;
 	color: #417EBD;
-	padding: 10px 0px 30px 0px;
 	cursor: default;
 	text-align:center;
 }
 
-.white .wbreak {
+.white .wbreak, .blue .bbreak {
 	display: none;
 }
 
+.wbreak, .bbreak {
+	width:100%;
+	max-width:300px;
+}
+
 .blue {
-	width: 70%;
-	margin: auto;
 	color: white;
 	cursor: default;
 }
@@ -40,10 +53,6 @@ body {
 	text-align: center;
 	padding: 0px;
 	font-size: 175%;
-}
-
-.blue .bbreak {
-	display: none;
 }
 
 footer {
@@ -69,4 +78,18 @@ div#importantnote {
 
 div#importantnote b {
 	text-transform:uppercase;
+}
+
+.bluefrog {
+	color:var(--blue-color);
+}
+
+.yellowfrog {
+	color:var(--yellow-color);
+}
+
+@media only screen and (max-width: 768px) {
+	section.white, section.blue {
+		padding:10px 0% 30px 0%;
+	}
 }

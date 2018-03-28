@@ -4,8 +4,7 @@ function inputOrderType(selection) {
 		confirmOrderType = ' order an Android TV box with a three month IPTV subscription';
 		document.getElementById('hideForBoxOrder').style.display = 'none';
 	} else if (selection == 'iptv') {
-		var boxDisplay = 'orderIPTVCustomerType';
-		document.getElementById('orderProcessingId').value = 'D39R66RL8YPZ6';
+		var boxDisplay = 'orderIPTVPackageChoice';
 		ga('gtag_UA_115185417_1.send', 'event', 'Order', 'Click', 'Order started');
 	} else {
 		return;
@@ -13,6 +12,30 @@ function inputOrderType(selection) {
 	document.getElementById('orderTypeChoice').style.display = 'none';
 	document.getElementById('restartOrderBtn').style.display = 'block';
 	document.getElementById(boxDisplay).style.display = 'block';
+}
+
+function inputOrderIPTVPackageType(selection) {
+	orderPackage = selection;
+	if (orderPackage == 'combo') {
+		document.querySelector('#orderIPTVOrderLength .onemonth .price').textContent = '$20.00 USD / month';
+		document.querySelector('#orderIPTVOrderLength .threemonth .price').textContent = '$17.00 USD / month';
+	} else {
+		document.querySelector('#orderIPTVOrderLength .onemonth .price').textContent = '$10.00 USD / month';
+		document.querySelector('#orderIPTVOrderLength .threemonth .price').textContent = '$9.00 USD / month';
+	}
+	
+	if (orderPackage == 'combo') {
+		document.getElementById('orderProcessingId').value = 'MYK2FVVN62EHC';
+	} else if (orderPackage == 'blue') {
+		document.getElementById('orderProcessingId').value = 'D39R66RL8YPZ6';
+	} else if (orderPackage = 'yellow') {
+		document.getElementById('orderProcessingId').value = 'SSR39JKTXZM52';
+	} else {
+		document.getElementById('orderProcessingId').value = '';
+	}
+	
+	document.getElementById('orderIPTVPackageChoice').style.display = 'none';
+	document.getElementById('orderIPTVCustomerType').style.display = 'block';
 }
 
 function inputOrderIPTVCustomerType(selection) {
@@ -123,6 +146,7 @@ function submitOrder() {
 function restartOrder() {
 	document.getElementById('orderTypeChoice').style.display = 'none';
 	document.getElementById('orderIPTVCustomerType').style.display = 'none';
+	document.getElementById('orderIPTVPackageChoice').style.display = 'none';
 	document.getElementById('orderIPTVOrderLength').style.display = 'none';
 	document.getElementById('orderPhoneNumber').style.display = 'none';
 	document.getElementById('orderPromoCode').style.display = 'none';
@@ -139,6 +163,7 @@ function restartOrder() {
 
 var confirmOrderType = '';
 var confirmOrderLength = '';
+var orderPackage = '';
 
 document.getElementById('phonenumberinput').addEventListener('keyup',function(evt){
         var phoneNumber = document.getElementById('phonenumberinput');

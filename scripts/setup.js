@@ -1,3 +1,5 @@
+var setupURL = 'http://iptvfrog.com/setup?mac=';
+
 function getParameterByName(name, url) {
     if (!url) {
       url = window.location.href;
@@ -30,7 +32,9 @@ function loadPage() {
 	} else {
 		setTimeout(function(){
 			var splash = document.getElementById('splash');
-			splash.parentNode.removeChild(splash);
+			if (splash) {
+				splash.parentNode.removeChild(splash);
+			}
 		},2000);
 	}
 }
@@ -84,7 +88,7 @@ function submitMAC() {
 		}
 	}
 	if (macAddress.length >= 17) {
-		window.location.href = 'http://iptvfrog.com/setup?mac=' + macAddress;
+		window.location.href = setupURL + macAddress;
 	}
 }
 
@@ -110,6 +114,36 @@ function submitPhone() {
 	}
 	macAddress += phone2.value.charAt(1) + phone2.value.charAt(2) + ':' + phone3.value.charAt(0) + phone3.value.charAt(1) + ':' + phone3.value.charAt(2) + phone3.value.charAt(3);
 	if (phone1.className != 'error' && phone2.className != 'error' && phone3.className != 'error') {
-		window.location.href = 'http://iptvfrog.com/setup?mac=' + macAddress;
+		window.location.href = setupURL + macAddress;
 	}
+}
+
+function changePortal() {
+	var e = document.getElementById('instructionsfrog');
+	var portal = e.options[e.selectedIndex].value;
+	loadURL(portal);
+}
+
+function loadURL(portal) {
+	document.getElementsByClassName('portalurl')[0].textContent = portal;
+	document.getElementById('packageType').style.display = 'none';
+	if (portal == 'blue') {
+		var portalURL = 'http://crowntv.pw';
+		document.getElementById('frogselectionblue').selected = 'selected';
+		document.getElementById('video').style.display = 'block';
+		document.getElementById('videobutton').className = 'show';
+		document.getElementById('help').className = 'white';
+		document.getElementsByClassName('profilename')[0].textContent = 'Blue IPTV Frog';
+	} else if (portal == 'yellow') {
+		var portalURL = 'http://20.epiciptv.com:80/stalker_portal/c/';
+		document.getElementById('frogselectionyellow').selected = 'selected';
+		document.getElementById('video').style.display = 'none';
+		document.getElementById('videobutton').className = 'hide';
+		document.getElementById('help').className = 'blue';
+		document.getElementsByClassName('profilename')[0].textContent = 'Yellow IPTV Frog';
+	} else {
+		location.reload();
+		return;
+	}
+	document.getElementsByClassName('portalurl')[0].textContent = portalURL;
 }
