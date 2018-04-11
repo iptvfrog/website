@@ -87,6 +87,7 @@
 			</div>
 			<h2 class="devicenote">Don't have an Android device?</h2>
 			<p class="devicenote">We will soon be selling plug and play devices for our IPTV service! Check back soon.</p>
+			<div class="referralnote">Earn <b><u>FREE IPTV</u></b> by referring friends!<a href="referral" target="_blank">Learn More ></a></div>
 		</section>
 		<section id="compare" class="white">
 			<h1>IPTV PRODUCTS - INTERNET PROTOCOL TELEVISION</h1>
@@ -134,7 +135,7 @@
 						}
 					</style>
 				</noscript>
-					<table id="orderTypeChoice">
+					<table id="orderTypeChoice" class="order-input-screen">
 						<tr>
 							<td onclick="inputOrderType('iptv')" class="btn">
 								<h2>Begin Order</h2>
@@ -147,7 +148,7 @@
 						</tr>
 					</table>
 					
-					<table id="orderIPTVPackageChoice">
+					<table id="orderIPTVPackageChoice" class="order-input-screen">
 						<tr>
 							<td colspan="3">
 								<h3>Which IPTV package would you like to subscribe to?</h3>
@@ -169,7 +170,7 @@
 						</tr>
 					</table>
 					
-					<table id="orderIPTVCustomerType">
+					<table id="orderIPTVCustomerType" class="order-input-screen">
 						<tr>
 							<td colspan="2">
 								<h3>Are you a new customer or renewing your existing subscription?</h3>
@@ -185,7 +186,7 @@
 						</tr>
 					</table>
 					
-					<table id="orderIPTVOrderLength">
+					<table id="orderIPTVOrderLength" class="order-input-screen">
 						<tr>
 							<td colspan="2">
 								<h3>How long would you like to subscribe to our IPTV service?</h3>
@@ -205,7 +206,7 @@
 						</tr>
 					</table>
 					
-					<table id="orderPhoneNumber">
+					<table id="orderPhoneNumber" class="order-input-screen">
 						<tr>
 							<td colspan="2">
 								<h3>Please enter your phone number:</h3>
@@ -225,7 +226,30 @@
 						</tr>
 					</table>
 					
-					<table id="orderPromoCode">
+					<table id="orderReferral" class="order-input-screen">
+						<tr>
+							<td colspan="2">
+								<h3>Were you referred to IPTV Frog by someone? Enter their name:</h3>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<input type="text" id="referralinput" class="input"><br><br>
+								<button onclick="skipReferral()" id="skipreferral">
+									<h2>Skip X</h2>
+								</button>
+								<button onclick="inputReferral()" id="referralready" disabled>
+									<h2>Next ></h2>
+								</button><br><br>
+								<div id="warnings">
+									<div id="referralfoundnote">*** You clicked on an IPTV Frog referral link belonging to the above person within the past the 30 days. This person will automatically receive a credit for your purchase. Please clear your browser's cookies if you wish to remove this referral from your purchase. ***</div>
+									<div>*** Referrals are subject to verification. Invalid referrals will not be credited. ***</div>
+								</div>
+							</td>
+						</tr>
+					</table>
+					
+					<table id="orderPromoCode" class="order-input-screen">
 						<tr>
 							<td colspan="2">
 								<h3>Do you have a promocode? Enter it here:</h3>
@@ -247,7 +271,7 @@
 						</tr>
 					</table>
 					
-					<table id="orderPlace">
+					<table id="orderPlace" class="order-input-screen">
 						<tr>
 							<td colspan="2">
 								<h3 id="orderConfirmMessage">Are you sure that you would like to proceed with your order?</h3>
@@ -310,7 +334,7 @@
 			<h2><a href="setup">View Instructions</a></h2>
 		</section>
 		<footer>
-			Copyright &copy; 2017 IPTV Frog &ndash; All rights reserved
+			Copyright &copy; IPTV Frog &ndash; All rights reserved
 		</footer>
 	</body>
 </html>
