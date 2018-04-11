@@ -3,85 +3,22 @@ function startOrder() {
 	document.getElementById('restartOrderBtn').style.display = 'block';
 }
 
-function inputOrderIPTVPackageType(selection) {
-	orderPackage = selection;
-	if (orderPackage == 'combo') {
-		document.querySelector('#orderIPTVOrderLength .onemonth .price').textContent = '$20.00 USD / month';
-		document.querySelector('#orderIPTVOrderLength .threemonth .price').textContent = '$17.00 USD / month';
-	} else {
-		document.querySelector('#orderIPTVOrderLength .onemonth .price').textContent = '$10.00 USD / month';
-		document.querySelector('#orderIPTVOrderLength .threemonth .price').textContent = '$9.00 USD / month';
-	}
-	
-	if (orderPackage == 'combo') {
-		document.getElementById('orderProcessingId').value = 'MYK2FVVN62EHC';
-	} else if (orderPackage == 'blue') {
-		document.getElementById('orderProcessingId').value = 'D39R66RL8YPZ6';
-	} else if (orderPackage = 'yellow') {
-		document.getElementById('orderProcessingId').value = 'SSR39JKTXZM52';
-	} else {
-		document.getElementById('orderProcessingId').value = '';
-	}
-	toggle(2);
-}
-
-function inputOrderIPTVCustomerType(selection) {
-	if (selection == 'new') {
-		customer = 'NEW';
-		confirmOrderType = ' order an IPTV subscription for';
-		document.getElementById('hideForNewIPTV').style.display = 'none';
-		document.getElementById('newrecommend').style.display = 'inline';
-	} else if (selection == 'renew') {
-		customer = 'EXISTING';
-		document.getElementById('hideForRenewIPTV').style.display = 'none';
-		document.getElementById('newrecommend').style.display = 'none';
-		confirmOrderType = ' renew your IPTV subscription for an additional';
-	} else {
-		return;
-	}
-	var orderCode = document.getElementById('ordercode');
-	orderCode.value = '*' + customer + '*';
-	document.cookie = 'order=' + customer.toLowerCase() + '; path=/success';
-	toggle(3);
-}
-
-function inputOrderIPTVLength(selection) {
-	if (selection == 'one') {
-		document.getElementById('iptvduration').value = '1 Month';
-		confirmOrderLength = ' one month';
-	} else if (selection == 'three') {
-		document.getElementById('iptvduration').value = '3 Months';
-		confirmOrderLength = ' three months';
-	} else {
-		return;
-	}
-	toggle(4);
-}
-
 function inputPhoneNumber() {
 	var phone = document.getElementById('phonenumberinput').value;
 	var orderCode = document.getElementById('ordercode');
 	orderCode.value = phone + ' ' + orderCode.value;
-	var mac = '00:1A:79:' + phone.charAt(7) + phone.charAt(8) + ':' + phone.charAt(10) + phone.charAt(11) + ':' + phone.charAt(12) + phone.charAt(13);
-	document.cookie = 'mac=' + mac + '; path=/success';
-	document.getElementById('orderConfirmMessage').textContent = 'Are you sure that you would like to ' + confirmOrderType + confirmOrderLength + '?';
-	
-	if (customer == 'NEW') {
-		toggle(5);
-	} else {
-		toggle(6);
-	}
+	toggle(2);
 }
 
 function inputReferral() {
 	var referralcode = document.getElementById('referralinput').value;
 	var orderCode = document.getElementById('ordercode');
 	orderCode.value = orderCode.value + ' Referral: ' + referralcode;
-	toggle(6);
+	toggle(3);
 }
 
 function skipReferral() {
-	toggle(6);
+	toggle(3);
 }
 
 function inputPromoCode() {
@@ -89,12 +26,12 @@ function inputPromoCode() {
 	var orderCode = document.getElementById('ordercode');
 	orderCode.value = orderCode.value + ' Promo: ' + promocode;
 	document.getElementById('restartOrderBtn').style.display = 'none';
-	toggle(7);
+	toggle(4);
 }
 
 function skipPromoCode() {
 	document.getElementById('restartOrderBtn').style.display = 'none';
-	toggle(7);
+	toggle(4);
 }
 
 function promocodeFormat(input) {
@@ -146,13 +83,10 @@ function restartOrder() {
 
 function toggle(screen) {
 	// 0 = Start order
-	// 1 = Server
-	// 2 = New or renew
-	// 3 = Months
-	// 4 = Phone number
-	// 5 = Referral
-	// 6 = Promocode
-	// 7 = Order confirm
+	// 1 = Phone number
+	// 2 = Referral
+	// 3 = Promocode
+	// 4 = Confirmation
 	var screens = document.getElementsByClassName('order-input-screen');
 	for (var i = 0; i < screens.length; i++) {
 		if (i == screen) {
@@ -161,18 +95,6 @@ function toggle(screen) {
 			screens[i].style.display = 'none';
 		}
 	}
-}
-
-function getParameterByName(name, url) {
-    if (!url) {
-      url = window.location.href;
-    }
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
 function convert(character) {
@@ -184,18 +106,6 @@ function convert(character) {
 	} else {
 		return " ";
 	}
-}
-
-function createCookie(name, value, days) {
-    var date, expires;
-    if (days) {
-        date = new Date();
-        date.setTime(date.getTime()+(days*24*60*60*1000));
-        expires = "; expires="+date.toGMTString();
-    } else {
-        expires = "";
-    }
-    document.cookie = name+"="+value+expires+"; path=/";
 }
 
 function checkCookie() {
@@ -233,28 +143,7 @@ function getCookie(cname) {
     return null;
 }
 
-var confirmOrderType = '';
-var customer = '';
-var confirmOrderLength = '';
-var orderPackage = '';
-var ref = getParameterByName('ref');
-if (ref != null && ref != ''){
-	var fullref = '';
-	for (var i = 0; i < ref.length; i++) {
-		fullref += convert(ref.charAt(i).toUpperCase());
-	}
-	createCookie('referral',ref,30);
-	document.getElementById('referralinput').value = fullref;
-	document.getElementById('referralinput').readOnly = true;
-	document.getElementById('referralready').disabled = false;
-	document.getElementById('skipreferral').disabled = true;
-} else {
-	var fullref='';
-	document.getElementById('referralinput').readOnly = false;
-	document.getElementById('skipreferral').disabled = false;
-	document.getElementById('referralfoundnote').style.display = 'none';
-	checkCookie();
-}
+checkCookie();
 toggle(0);
 
 document.getElementById('phonenumberinput').addEventListener('keyup',function(evt){

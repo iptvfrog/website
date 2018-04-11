@@ -59,7 +59,7 @@
 	animation-play-state:paused;
 }
 
-#about article.split, #compare article.split {
+article.split {
 	width: 49%;
 	box-sizing: border-box;
 	display: inline-block;
@@ -117,6 +117,12 @@
 	text-align:center;
 }
 
+#about .devicenote a {
+	text-decoration:none;
+	color:white;
+	font-size:150%;
+}
+
 #about article.full {
 	font-size: 120%;
 	text-align: center;
@@ -140,6 +146,11 @@
 	animation-name:blink-multiple;
 	animation-duration:2s;
 	animation-iteration-count:infinite;
+}
+
+#about div.devicelist a {
+	text-decoration:none;
+	color:white;
 }
 
 #about div.devicelist div .note {
@@ -198,110 +209,53 @@
 	line-height: 2;
 }
 
-#order #restartOrderBtn {
-	display:none;
-	color:var(--red-color);
-	border:2px solid var(--red-color);
-	background:none;
-	padding:5px 10px;
-	cursor:pointer;
-	margin-bottom:10px;
-}
-
-#order #restartOrderBtn:hover {
-	background-color:var(--red-color);
-	border:2px solid var(--red-color);
-	color:white;
-}
-
-#order table {
-	width:100%;
-}
-
-#order table tr td {
-	text-align:center;
-}
-
-#order table tr td #newrecommend {
-	color:yellow;
-}
-
-#order table tr td button, #order tr td.btn, #instructions a {
-	width:40%;
-	padding:20px;
-	background:none;
-	color:white;
-	border:2px solid white;
-	cursor:pointer;
-	text-decoration:none;
-}
-
-#order table tr td button:not([disabled]):hover, #order tr td.btn:not([disabled]):hover, #instructions a:not([disabled]):hover {
-	background-color:white;
-	color:#407DBC;
-}
-
-#order button h2, #order tr td.btn h2 {
-	padding:0px;
-	margin:0px;
-}
-
-#order button:disabled, #order tr td.btn:disabled {
-	color:#BFBFBF;
-	border:2px solid #BFBFBF;
-	cursor:not-allowed;
-}
-
-#order #orderTypeChoice td.btn {
-	animation-name:blink-single;
-	animation-duration:2s;
-	animation-iteration-count:infinite;
-}
-
-#order #orderTypeChoice td.btn:hover {
-	animation-play-state:paused;
-	background-color:white !important;
-}
-
-#order .input {
-	background-color: #417EBD;
-	background-color: rgba(255,255,255,0);
-	border: 2px solid white;
-	padding: 10px;
-	color: white;
-	font-size: 120%;
-}
-
-#order .input:hover, #order .input:focus {
-	background-color: rgba(255,255,255,0.25);
-}
-
 h3 {
 	text-align: center;
 }
 
-#order #warnings div {
-	font-size: 80%;
-	padding: 10px;
-	background-color: white;
-	color: #417EBD;
-}
-
-.order-input-screen {
-	display: none;
-}
-
 #instructions {
 	text-align:center;
- }
+}
  
- #instructions h2 {
+#instructions h2 {
 	box-sizing:border-box;
 	margin:40px 0px;
- }
+}
  
+#box .split img {
+	width:100%;
+}
+
+#box .split h1 {
+	font-size:300%;
+	margin:0px;
+}
+ 
+#box ul {
+	font-size:125%;
+	list-style:none;
+	padding:0px;
+}
+ 
+#box a {
+	background-color:white;
+	color:#F3AD27;
+	border:3px solid #F3AD27;
+	padding:10px;
+	box-sizing:border-box;
+	text-decoration:none;
+	font-size:200%;
+	font-weight:bold;
+	border-radius:10px;
+}
+
+#box a:hover {
+	background-color:#F3AD27;
+	color:white;
+}
+
 @media only screen and (max-width: 768px) {
-	#about article.split, #compare article.split {
+	article.split {
 		width: 100%;
 		display: block;
 		padding: 20px 50px;
