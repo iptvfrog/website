@@ -1,0 +1,125 @@
+#headernote {
+	width:50%;
+	margin:10px auto;
+	padding:10px;
+	border-radius:10px;
+	border:3px solid white;
+	color:white;
+	font-size:150%;
+	animation-name:blink-single;
+	animation-duration:2s;
+	animation-iteration-count:infinite;
+}
+
+#mainsection {
+	width: 100%;
+	height: 100vh;
+	background-color: #148114;
+	background-image: url("../images/backgroundbox.jpg");
+	background-size: cover;
+	background-position: center;
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+	cursor: default;
+	z-index: 100;
+}
+
+#mainsection #logo {
+	height: 40vh;
+}
+
+#mainsection h1 {
+	color: white;
+	padding: 0px;
+	margin: 0px;
+	font-size: 10vh;
+}
+
+#mainsection h3 {
+	color: white;
+}
+
+#mainsection a {
+	text-decoration: none;
+	color: white;
+	font-size: 125%;
+	border: 2px solid white;
+	padding: 10px;
+	border-radius: 10px;
+	animation-name:blink-single;
+	animation-duration:2s;
+	animation-delay:1s;
+	animation-iteration-count:infinite;
+}
+
+#mainsection a:hover {
+	color: #148114;
+	background-color: white !important;
+	animation-play-state:paused;
+}
+
+article.split {
+	width: 49%;
+	box-sizing: border-box;
+	display: inline-block;
+	padding: 20px 50px;
+	line-height: 1.5;
+	vertical-align: top;
+}
+
+article.split {
+	text-align:justify;
+}
+
+article.full {
+	font-size: 120%;
+	text-align: center;
+}
+
+h2, .specs {
+	text-align:center;
+}
+
+@keyframes blink-single {
+	0% {background-color:rgba(255,255,255,0);}
+    50% {background-color:rgba(255,255,255,0.5);}
+    100% {background-color:rgba(255,255,255,0);}
+}
+
+.boximage {
+	width:30%;
+	padding:10px;
+	box-sizing:border-box;
+}
+
+.specs img {
+	width:20%;
+	font-size:200%;
+}
+ 
+@media only screen and (max-width: 768px) {
+	article.split {
+		width: 100%;
+		display: block;
+		padding: 20px 50px;
+	}
+	#mainsection h3 {
+		display:none;
+	}
+	input, button {
+		width:90%;
+	}
+	#mainsection center {
+		padding-bottom:15px;
+	}
+	.full {
+		width:90%;
+		margin:auto;
+	}
+	.boximage, .specs img {
+		width:90%;
+		margin:auto;
+		display:block;
+	}
+}

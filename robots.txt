@@ -1,11 +1,10 @@
 User-agent: *
+Disallow: /download
 Disallow: /images
 Disallow: /scripts
 Disallow: /stylesheets
-Disallow: /cancel.html
+Disallow: /404
 Disallow: /cancel
 Disallow: /success
-Disallow: /success.html
-Disallow: /setup
-Disallow: /setup.html
-Disallow: /download
+Disallow: /success2
+Disallow: /webhp

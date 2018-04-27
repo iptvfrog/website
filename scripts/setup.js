@@ -128,14 +128,14 @@ function loadURL(portal) {
 	document.getElementsByClassName('portalurl')[0].textContent = portal;
 	document.getElementById('packageType').style.display = 'none';
 	if (portal == 'blue') {
-		var portalURL = 'http://blue.iptvfrog.com';
+		var portalURL = 'http://crowntv.pw';
 		document.getElementById('frogselectionblue').selected = 'selected';
 		document.getElementById('video').style.display = 'block';
 		document.getElementById('videobutton').className = 'show';
 		document.getElementById('help').className = 'white';
 		document.getElementsByClassName('profilename')[0].textContent = 'Blue IPTV Frog';
 	} else if (portal == 'yellow') {
-		var portalURL = 'http://yellow.iptvfrog.com';
+		var portalURL = 'http://20.epiciptv.com:80/stalker_portal/c/';
 		document.getElementById('frogselectionyellow').selected = 'selected';
 		document.getElementById('video').style.display = 'none';
 		document.getElementById('videobutton').className = 'hide';
