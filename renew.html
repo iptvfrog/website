@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Renew Your IPTV Frog Subscription</title>
+		<link rel="stylesheet" type="text/css" href="stylesheets/theme.css" />
+		<link rel="stylesheet" type="text/css" href="stylesheets/home.css" />
+		<link rel="stylesheet" type="text/css" href="stylesheets/renew.css" />
+		<link rel="icon" type="image/png" href="images/icon.png" />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="title" content="IPTV Frog" />
+		<meta name="publisher" content="IPTV Frog" />
+		<meta name="description" content="An American-based provider of affordable IPTV services for Android TV boxes and many other devices. With IPTV Frog you will have access to over 2500 channels from around the world for a low monthly fee." />
+		<meta name="copyright" content="Copyright © IPTV Frog" />
+		<meta name="keywords" content="iptv, tv, television" />
+		<meta name="google-site-verification" content="xp23tGwsjIHUP4_XqihoZrTP7CXo1f82cJ5WWttEsSo" />
+		<meta property="og:type" content="product" />
+		<meta property="og:description" content="IPTV Frog is an American-based provider of affordable IPTV services, providing access to over 2500 channels from around the world for just $10 per month!" />
+		<meta property="og:url" content="http://iptvfrog.com/" />
+		<meta property="og:title" content="IPTV Frog - Over 2500 live TV channels for $10 per month" />
+		<meta property="og:image" content="http://iptvfrog.com/images/thumbnails/index.jpg" />
+		<meta property="product:brand" content="IPTV Frog" />
+		<meta property="product:retailer_title" content="IPTV Frog" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115185417-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'UA-115185417-1');
+		</script>
+	</head>
+	<body>
+		<section id="order" class="blue">
+			<h1>RENEW YOUR SUBSCRIPTION</h1>
+			<center>
+				<img src="images/breakalt.png" alt="--------------------" class="break bbreak" />
+				<img src="images/break.png" alt="--------------------" class="break wbreak" />
+			</center>
+			<noscript>
+				<div id="no-js">
+					<h1>Javascript is required in order to complete an order on IPTV Frog!</h1>
+					<h3>Enable Javascript on your browser and refresh this page</h3>
+				</div>
+				<style>
+					#renew-order-table {
+						display:none !important;
+					}
+					#no-js {
+						background-color:red;
+						color:white;
+						padding:30px;
+					}
+				</style>
+			</noscript>
+			<table cellspacing="10px;" id="renew-order-table">
+				<tr>
+					<td colspan="2" class="table-header">
+						Account Details
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>MAC Address: </label>
+					</td>
+					<td>
+						<span id="order-mac">XX:XX:XX:XX:XX:XX</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>Current Package: </label>
+					</td>
+					<td>
+						<span id="order-current">Blue</span> Frog Subscription
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="table-header">
+						Renewal Details
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="order-service">Package: </label>
+					</td>
+					<td>
+						<select id="order-service">
+							<option value="blue">Blue Frog Subscription</option>
+							<option value="yellow">Yellow Frog Subscription</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="order-duration">Renewal Duration: </label>
+					</td>
+					<td>
+						<select id="order-duration">
+							<option value="1">1 Month</option>
+							<option value="3">3 Months</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="order-promocode">Promotional Code: </label>
+					</td>
+					<td>
+						<input type="text" id="order-promocode"></input>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="table-header">Terms & Conditions</td>
+				</tr>
+				<tr>
+					<td colspan="2" id="order-terms">
+						<p>Once your payment is processed, your subscription cannot be cancelled. IPTV Frog cannot provide refunds for payments under any circumstances once the payment has been processed.</p>
+						<p id="term-change-1">Changing your subscription package from the Blue Frog to Yellow Frog or vice versa will require the portal URL in the STB Emulator to be changed. You may be required to confirm that you want to change your subscription package via an email message.</p>
+						<p id="term-change-2">Your subscription package cannot be changed mid-subscription. You will need to wait until your next renewal date to change your subscription package.</p>
+						<p>It may take up to 48 hours for your payment to be applied to your account from the time that it is processed using PayPal.</p>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<label class="container" for="order-agree">I agree to the above terms & conditions
+							<input type="checkbox" id="order-agree">
+							<span class="checkmark"></span>
+						</label>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<center>
+							<button id="order-confirm" onclick="placeOrder()">Confirm Order</button>
+						</center>
+					</td>
+				</tr>
+			</table>
+			<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style="display:none;">
+				<div id="orderCodesHidden">
+					<input type="hidden" name="cmd" value="_s-xclick">
+					<input type="hidden" name="hosted_button_id" id="orderProcessingId" value="">
+					<select name="os0" style="display:none" id="iptvduration">
+						<option value="1 Month">1 Month $10.00 USD</option>
+						<option value="3 Months">3 Months $27.00 USD</option>
+					</select>
+					<input type="hidden" name="on1" value="Phone Number">
+					<input type="text" id="ordercode" name="os1" readonly>
+					<input type="hidden" name="currency_code" value="USD">
+					<input type="image" src="" border="0" name="submit" alt="Order Now" id="ordernow" style="display:none;">
+					<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+				</div>
+				<button name="submit" id="submitbutton">Yes</button>
+			</form>
+			<script src="scripts/renew.js"></script>
+		</section>
+		<section id="contact" class="white">
+			<h1>HAVE QUESTIONS?</h1>
+			<center>
+				<img src="images/breakalt.png" alt="--------------------" class="break bbreak" />
+				<img src="images/break.png" alt="--------------------" class="break wbreak" />
+			</center>
+			<p>We'd be happy to answer any questions you have. Send us an email at <b>iptvfrog@gmail.com</b>
+		</section>
+		<footer>
+			Copyright &copy; IPTV Frog &ndash; All rights reserved
+		</footer>
+	</body>
+</html>

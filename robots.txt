@@ -8,3 +8,4 @@ Disallow: /cancel
 Disallow: /success
 Disallow: /success2
 Disallow: /webhp
+Disallow: /renew
