@@ -6,7 +6,12 @@ function getPrams() {
 	
 	var pramString = getParameterByName('r');
 	
-	if (pramString.length != 7 || pramString == null) {
+	if (pramString == null) {
+		window.location.replace("http://iptvfrog.com");
+		return;
+	}
+	
+	if (pramString.length != 7) {
 		window.location.replace("http://iptvfrog.com");
 		return;
 	}
