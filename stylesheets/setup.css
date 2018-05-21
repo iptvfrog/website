@@ -10,6 +10,10 @@
 	text-align:center;
 }
 
+#packageType.hidden {
+	display:none !important;
+}
+
 #packageType div.packagecontainer {
 	width:80%;
 	margin:auto;

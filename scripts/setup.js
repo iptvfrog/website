@@ -34,6 +34,7 @@ function loadPage() {
 			var splash = document.getElementById('splash');
 			if (splash) {
 				splash.parentNode.removeChild(splash);
+				document.getElementById('packageType').className = '';
 			}
 		},2000);
 	}
