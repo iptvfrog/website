@@ -138,6 +138,56 @@
 					</td>
 				</tr>
 			</table>
+			<table cellspacing="10px;" id="renew-get-info-box">
+				<tr>
+					<td colspan="2">
+						To improve the speed of the renewal process, we have changed the way that you renew your account. In the days before your IPTV Frog subscription expires, you should receive an email from us saying that your account is about to expire. In that email, there will be renewal options and link for each option. You simply need to click that link and your account information will be automatically prefilled into our renewal system. You then need to review that the order information is correct and can proceed to the payment options.
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="table-header">
+						Didn't get an email?
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						Now, all our renewal emails are sent by a human staff. If you didn’t get an email reminder to tell you that your account is expired, we may have missed you. If you know your MAC address, then you can simply fill out the information directly below to continue with the renewal process. 
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<b>Your current MAC address:</b>
+						<i onclick="alert('This information can be found in the email that you received when your originally signed up or can be found in your STB Emulator settings.')" style="cursor:pointer">(Where do I find this?)</i>
+					</td>
+					<td>
+						XX:XX:XX:XX:<input type="text" id="mac-address-1" maxLength="2" size="2" placeholder="XX"/>:<input type="text" id="mac-address-2" maxLength="2" size="2" placeholder="XX"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<b>What subscription package is this MAC address linked to?</b>
+					</td>
+					<td>
+						<select id="confirm-service">
+							<option selected disabled hidden></option>
+							<option value="b">Blue Frog Subscription</option>
+							<option value="y">Yellow Frog Subscription</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<center>
+							<button id="order-confirm" onclick="fillOrder()">Proceed >></button>
+						</center>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						If you are not sure about the information above, <u>do not enter fake information</u>. This will make it difficult for us to apply the payment to your account and will result in significant delays to your payment processing. If you are unsure, email us and ask for a renewal reminder email to be sent to you <i>(please include the phone number attached to your account)</i>.
+					</td>
+				</tr>
+			</table>
 			<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style="display:none;">
 				<div id="orderCodesHidden">
 					<input type="hidden" name="cmd" value="_s-xclick">

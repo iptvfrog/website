@@ -1,5 +1,5 @@
 function startOrder() {
-	toggle(1);
+	toggle(2);
 	document.getElementById('restartOrderBtn').style.display = 'block';
 }
 
@@ -22,7 +22,7 @@ function inputOrderIPTVPackageType(selection) {
 	} else {
 		document.getElementById('orderProcessingId').value = '';
 	}
-	toggle(2);
+	toggle(3);
 }
 
 function inputOrderIPTVCustomerType(selection) {
@@ -31,18 +31,19 @@ function inputOrderIPTVCustomerType(selection) {
 		confirmOrderType = ' order an IPTV subscription for';
 		document.getElementById('hideForNewIPTV').style.display = 'none';
 		document.getElementById('newrecommend').style.display = 'inline';
+		var orderCode = document.getElementById('ordercode');
+		orderCode.value = '*' + customer + '*';
+		document.cookie = 'order=' + customer.toLowerCase() + '; path=/success';
+		toggle(1);
 	} else if (selection == 'renew') {
-		customer = 'EXISTING';
+		window.location.href = 'http://iptvfrog.com/renew?r=n';
+		/*customer = 'EXISTING';
 		document.getElementById('hideForRenewIPTV').style.display = 'none';
 		document.getElementById('newrecommend').style.display = 'none';
-		confirmOrderType = ' renew your IPTV subscription for an additional';
+		confirmOrderType = ' renew your IPTV subscription for an additional';*/
 	} else {
 		return;
 	}
-	var orderCode = document.getElementById('ordercode');
-	orderCode.value = '*' + customer + '*';
-	document.cookie = 'order=' + customer.toLowerCase() + '; path=/success';
-	toggle(3);
 }
 
 function inputOrderIPTVLength(selection) {

@@ -1,3 +1,38 @@
+function fillOrder() {
+	var macAddress1 = document.getElementById('mac-address-1').value;
+	var macAddress2 = document.getElementById('mac-address-2').value;
+	var subPackage = document.getElementById('confirm-service').options[document.getElementById('confirm-service').selectedIndex].value;
+	var error = false;
+	
+	if (macAddress1.length != 2) {
+		document.getElementById('mac-address-1').className = 'error';
+		error = true;
+	} else {
+		document.getElementById('mac-address-1').className = '';
+	}
+	
+	if (macAddress2.length != 2) {
+		document.getElementById('mac-address-2').className = 'error';
+		error = true;
+	} else {
+		document.getElementById('mac-address-2').className = '';
+	}
+	
+	if (subPackage != 'y' && subPackage != 'b') {
+		document.getElementById('confirm-service').className = 'error';
+		error = true;
+	} else {
+		document.getElementById('confirm-service').className = '';
+	}
+	
+	if (error) {
+		return;
+	}
+	
+	var url = 'http://iptvfrog.com/renew?r=' + macAddress1 + macAddress2 + subPackage + subPackage + '1';
+	window.location.replace(url);
+}
+
 function getPrams() {
 	var macAddress = document.getElementById('order-mac');
 	var currentPackage = document.getElementById('order-current');
@@ -12,9 +47,17 @@ function getPrams() {
 	}
 	
 	if (pramString.length != 7) {
-		window.location.replace("http://iptvfrog.com");
-		return;
+		if (pramString == 'n') {
+			document.getElementById('renew-order-table').parentNode.removeChild(document.getElementById('renew-order-table'));
+			document.getElementById('renew-get-info-box').style.display = 'block';
+			return;
+		} else {
+			window.location.replace("http://iptvfrog.com");
+			return;
+		}
 	}
+	
+	document.getElementById('renew-get-info-box').parentNode.removeChild(document.getElementById('renew-get-info-box'));
 	
 	var macAdd = pramString.charAt(0) + pramString.charAt(1) + ":" + pramString.charAt(2) + pramString.charAt(3);
 	var cPack = pramString.charAt(4);
