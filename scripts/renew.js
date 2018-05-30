@@ -18,7 +18,7 @@ function fillOrder() {
 		document.getElementById('mac-address-2').className = '';
 	}
 	
-	if (subPackage != 'y' && subPackage != 'b') {
+	if (subPackage != 'y' && subPackage != 'b' && subPackage != 'c') {
 		document.getElementById('confirm-service').className = 'error';
 		error = true;
 	} else {
@@ -67,9 +67,14 @@ function getPrams() {
 	macAddress.textContent = 'XX:XX:XX:XX:' + macAdd;
 	
 	if (cPack == 'b') {
-		currentPackage.textContent = 'Blue';
+		currentPackage.textContent = 'Blue Frog Subscription';
+		currentPackage.className = 'b';
 	} else if (cPack == 'y') {
-		currentPackage.textContent = 'Yellow';
+		currentPackage.textContent = 'Yellow Frog Subscription';
+		currentPackage.className = 'y';
+	} else if (cPack == 'c') {
+		currentPackage.textContent = 'Combo Subscription (Blue & Yellow)';
+		currentPackage.className = 'c'
 	} else {
 		window.location.replace("http://iptvfrog.com");
 		return;
@@ -79,11 +84,15 @@ function getPrams() {
 		newPackage.selectedIndex = 0;
 	} else if (nPack == 'y') {
 		newPackage.selectedIndex = 1;
+	} else if (nPack == 'c') {
+		newPackage.selectedIndex = 2;
 	} else {
 		if (cPack == 'b') {
 			newPackage.selectedIndex = 0;
 		} else if (cPack == 'y') {
 			newPackage.selectedIndex = 1;
+		} else if (cPack == 'c') {
+			newPackage.selectedIndex = 2;
 		} else {
 			window.location.replace("http://iptvfrog.com");
 			return;
@@ -109,9 +118,48 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
+function checkWarning() {
+	var currentPackage = document.getElementById('order-current').className;
+	var newPackage = document.getElementById('order-service').options[document.getElementById('order-service').selectedIndex].value;
+	var warningMsg = document.getElementById('combo-warning');
+	if (newPackage == 'combo' && currentPackage != 'combo') {
+		if (currentPackage == 'b') {
+			document.getElementById('combo-warning-sub').textContent = 'Yellow';
+		} else {
+			document.getElementById('combo-warning-sub').textContent = 'Blue';
+		}
+		warningMsg.className = '';
+	} else {
+		warningMsg.className = 'hide';
+	}
+	updateTotal();
+}
+
+function updateTotal() {
+	var newPackage = document.getElementById('order-service').options[document.getElementById('order-service').selectedIndex].value;
+	var renewLength = document.getElementById('order-duration').options[document.getElementById('order-duration').selectedIndex].value;
+	var totalDisplay = document.getElementById('order-subtotal');
+	var subTotal;
+	
+	if (newPackage == 'blue' || newPackage == 'yellow') {
+		if (renewLength == 1) {
+			subTotal = 10;
+		} else if (renewLength == 3) {
+			subTotal = 27;
+		}
+	} else if (newPackage == 'combo') {
+		if (renewLength == 1) {
+			subTotal = 20;
+		} else if (renewLength == 3) {
+			subTotal = 51;
+		}
+	}
+	totalDisplay.textContent = '$' + subTotal + '.00';
+}
+
 function placeOrder() {
 	var macAddress = document.getElementById('order-mac').textContent;
-	var currentPackage = document.getElementById('order-current').textContent.toLowerCase();
+	var currentPackage = document.getElementById('order-current').className;
 	var newPackage = document.getElementById('order-service').options[document.getElementById('order-service').selectedIndex].value;
 	var renewLength = document.getElementById('order-duration').options[document.getElementById('order-duration').selectedIndex].value;
 	var promoCode = document.getElementById('order-promocode').value.trim().toUpperCase();
@@ -125,6 +173,8 @@ function placeOrder() {
 		paypalID.value = 'D39R66RL8YPZ6';
 	} else if (newPackage == 'yellow') {
 		paypalID.value = 'SSR39JKTXZM52';
+	} else if (newPackage == 'combo') {
+		paypalID.value = 'MYK2FVVN62EHC';
 	} else {
 		alert('Unknown Error! Please contact support.');
 	}
@@ -139,7 +189,7 @@ function placeOrder() {
 	
 	paypalOrderCode.value = macAddress;
 	
-	if (newPackage == currentPackage) {
+	if (newPackage.charAt(0) == currentPackage || newPackage.charAt(0) == 'c') {
 		paypalOrderCode.value += ' *RENEW*';
 	} else {
 		paypalOrderCode.value += ' *CHANGE*';
