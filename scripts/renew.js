@@ -107,6 +107,7 @@ function getPrams() {
 		renewLength.selectedIndex = 0;
 	}
 	updateTotal();
+	checkWarning();
 }
 
 function getParameterByName(name, url) {
