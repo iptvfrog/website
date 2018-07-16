@@ -42,21 +42,27 @@
 }
 
 #mainsection a {
-	text-decoration: none;
-	color: white;
-	font-size: 125%;
-	border: 2px solid white;
-	padding: 10px;
-	border-radius: 10px;
-	animation-name:blink-single;
+	position:absolute;
+	bottom:2vh;
+	width:100%;
+	height:5vh;
+	left:0px;
+	text-align:center;
+	box-sizing:border-box;
+	background-image:url("../images/arrow.png");
+	background-size:contain;
+	background-repeat:no-repeat;
+	background-position:center;
+	opacity:0.5;
+	transition:ease all 0.5s;
+	animation-name:blink-single-arrow;
 	animation-duration:2s;
 	animation-delay:1s;
 	animation-iteration-count:infinite;
 }
 
 #mainsection a:hover {
-	color: #A25AC4;
-	background-color: white !important;
+	opacity:1 !important;
 	animation-play-state:paused;
 }
 
@@ -137,6 +143,12 @@ button {
     50% {background-color:rgba(255,255,255,0.5);}
     100% {background-color:rgba(255,255,255,0);}
 }
+
+@keyframes blink-single-arrow {
+	0% {opacity:0.5;}
+    50% {opacity:1;}
+    100% {opacity:0.5;}
+}
  
 @media only screen and (max-width: 768px) {
 	article.split {
@@ -144,7 +156,7 @@ button {
 		display: block;
 		padding: 20px 50px;
 	}
-	#mainsection h3 {
+	#mainsection h3, #logo {
 		display:none;
 	}
 	#mainsection div#headernote, .reward, input, button {
