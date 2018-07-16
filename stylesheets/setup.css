@@ -118,6 +118,7 @@ body {
 	background-image: url("../images/backgroundset.jpg");
 	background-size: cover;
 	background-position: center;
+	background-attachment: fixed;
 	margin: 0px;
 	padding: 0px;
 	text-align: center;
