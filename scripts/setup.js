@@ -131,15 +131,11 @@ function loadURL(portal) {
 	if (portal == 'blue') {
 		var portalURL = 'http://blue.iptvfrog.com';
 		document.getElementById('frogselectionblue').selected = 'selected';
-		document.getElementById('video').style.display = 'block';
-		document.getElementById('videobutton').className = 'show';
 		document.getElementById('help').className = 'white';
 		document.getElementsByClassName('profilename')[0].textContent = 'Blue IPTV Frog';
 	} else if (portal == 'yellow') {
 		var portalURL = 'http://yellow.iptvfrog.com';
 		document.getElementById('frogselectionyellow').selected = 'selected';
-		document.getElementById('video').style.display = 'none';
-		document.getElementById('videobutton').className = 'hide';
 		document.getElementById('help').className = 'blue';
 		document.getElementsByClassName('profilename')[0].textContent = 'Yellow IPTV Frog';
 	} else {
