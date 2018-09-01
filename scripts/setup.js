@@ -144,3 +144,9 @@ function loadURL(portal) {
 	}
 	document.getElementsByClassName('portalurl')[0].textContent = portalURL;
 }
+
+function showAmazon() {
+	document.getElementById('amazon-steps').className = '';
+	document.getElementById('follow').className = '';
+	document.getElementById('show-steps-button').className = 'hide';
+}

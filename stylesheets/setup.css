@@ -215,7 +215,7 @@ section a {
 	body {
 		background:none !important;
 	}
-	#splash, #mainsection, img, footer, #video, iframe, header {
+	#splash, #mainsection, img, footer, #video, iframe, header, #show-steps-button {
 		display:none !important;
 	}
 	section.white, section.blue {
@@ -230,6 +230,12 @@ section a {
 	#note {
 		background-color:white !important;
 		border:2px solid black !important;
+	}
+	#amazon-steps {
+		display:block !important;
+	}
+	#follow {
+		display:inline !important;
 	}
 }
 
