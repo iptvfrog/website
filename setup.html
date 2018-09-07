@@ -121,6 +121,9 @@
 							<img src="images/yellowfrog.png"/>
 							<h1>Yellow Frog</h1>
 						</div>
+						<div class="package combo" onclick="loadURL('combo')">
+							<h1>Combo Subscription</h1>
+						</div>
 					</div>
 				</td>
 			</tr>
@@ -130,6 +133,7 @@
 			<select id="instructionsfrog" onchange="changePortal()">
 				<option id="frogselectionblue" value="blue">Blue Frog</option>
 				<option id="frogselectionyellow" value="yellow">Yellow Frog</option>
+				<option id="frogselectioncombo" value="combo">Combo Subscription</option>
 			</select>
 			subscription
 		</header>
@@ -152,33 +156,53 @@
 				<img src="images/breakalt.png" alt="--------------------" class="break bbreak" />
 				<img src="images/break.png" alt="--------------------" class="break wbreak" />
 			</center>
-			<ol>
-				<li>Open Kodi.</li>
-				<li>Scroll to Programs on the Kodi menu bar.</li>
-				<li>Open the APK Downloader.</li>
-				<li>Select Android.</li>
-				<li>Go to JayTech Apps.</li>
-				<li>Select the latest version of the STB Emulator.</li>
-				<li>Select Download.</li>
-				<li>When the download is complete, select Install.</li>
-				<li>When the installation is complete, select Done.</li>
-				<li>Exit Kodi and return to your Android box's home screen.</li>
-			</ol>
-			<p style="text-align:center;"><b>Don't have the APK Downloader or Kodi?</b><br>
-			No worries! The STB Emulator can be downloaded directly from <a target="_blank" href="http://download.iptvfrog.com">our IPTV Frog server</a>.</p>
-			<p style="text-align:center;"><b>Using an Amazon Fire TV product? <span class="hide" id="follow">Follow the steps below:</span> <a href="Javascript:showAmazon()" id="show-steps-button">Click here to view steps...</a></b></p>
-			<ol id="amazon-steps" class="hide">
-				<li>Go to the Amazon Fire TV settings.</li>
-				<li>Select Device.</li>
-				<li>Click Developer Options.</li>
-				<li>Ensure that ADB Debugging is On.</li>
-				<li>Ensure that Apps From Unknown Sources is On.</li>
-				<li>Open the Downloader app.</li>
-				<li>Select Browser on the sidebar.</li>
-				<li>Go to <span class="code">http://download.iptvfrog.com</span></li>
-				<li>When the file is done downloading, select Install.</li>
-				<li>When the app is done installing, select Done.</li>
-			</ol>
+			<label class="no-print">Viewing instructions for: </label>
+			<select class="no-print" id="devicetype" onchange="changeDevice()">
+				<option value="kodi" selected>Kodi</option>
+				<option value="android">Android</option>
+				<option value="amazon">Amazon Fire TV</option>
+			</select>
+			<div id="kodi-install">
+				<h2 class="print-only">Installing through Kodi</h2>
+				<ol>
+					<li>Open Kodi.</li>
+					<li>Scroll to Programs on the Kodi menu bar.</li>
+					<li>Open the APK Downloader.</li>
+					<li>Select Android.</li>
+					<li>Go to JayTech Apps.</li>
+					<li>Select the latest version of the STB Emulator.</li>
+					<li>Select Download.</li>
+					<li>When the download is complete, select Install.</li>
+					<li>When the installation is complete, select Done.</li>
+					<li>Exit Kodi and return to your Android box's home screen.</li>
+				</ol>
+				<p id="note"><b>NOTE: </b>This installation option only works on select Android devices. If you are unable to install the STB Emulator using this method, select the installation instructions for Android.</p>
+			</div>
+			<div id="android-install" class="hide">
+				<h2 class="print-only">Installing on Android</h2>
+				<ol id="android-install">
+					<li>Download the STB Emulator installation file from <span class="code">http://download.iptvfrog.com</span></li>
+					<li>Transfer this file to your Android device, if necessary (usually via USB).</li>
+					<li>Open the APK file.</li>
+					<li>Select Install.</li>
+					<li>When the installation is complete, select Done.</li>
+				</ol>
+			</div>
+			<div id="amazon-install" class="hide">
+				<h2 class="print-only">Installing on Amazon Fire TV</h2>
+				<ol id="amazon-install">
+					<li>Go to the Amazon Fire TV settings.</li>
+					<li>Select Device.</li>
+					<li>Click Developer Options.</li>
+					<li>Ensure that ADB Debugging is On.</li>
+					<li>Ensure that Apps From Unknown Sources is On.</li>
+					<li>Open the Downloader app.</li>
+					<li>Select Browser on the sidebar.</li>
+					<li>Go to <span class="code">http://download.iptvfrog.com</span></li>
+					<li>When the file is done downloading, select Install.</li>
+					<li>When the app is done installing, select Done.</li>
+				</ol>
+			</div>
 		</section>
 		<section id="stbconfig" class="white">
 			<h1>CONFIGURING STB EMULATOR</h1>
@@ -190,34 +214,63 @@
 				<li>Open the STB Emulator.</li>
 				<li>After it opens, press the Configure Application button <b><u>OR</u></b> press the menu key on your remote (looks like a list) and select Settings from the drop down menu that appears.</li>
 				<li>From the sidebar, select Profiles.</li>
-				<li>If there are no profiles listed on your program, press the Add Profile button. If there is a profile listed, select it.</li>
-				<li>Now in the profile settings, select Profile Name.</li>
-				<li>Press the return key on your remote to hide the onscreen keyboard.</li>
-				<li>Press and hold the right arrow key on your remote to move the text cursor to the end of the name.</li>
-				<li>Press the OK button on your remote to bring back the onscreen keyboard.</li>
-				<li>Erase the existing name by pressing and holding the backspace button on the onscreen keyboard on your remote.</li>
-				<li>Now type <span class="code profilename">Blue IPTV Frog</span> into the text box.</li>
-				<li>Press the return key on the remote to hide the onscreen keyboard.</li>
-				<li>Press Ok on the text box.</li>
-				<li>From the portal settings, select the Portal URL.</li>
-				<li>Press the return key on your remote to hide the onscreen keyboard.</li>
-				<li>Press and hold the right arrow key on your remote to move the text cursor to the end of the URL.</li>
-				<li>Press the OK button on your remote to bring back the onscreen keyboard.</li>
-				<li>Erase the existing URL by pressing and holding the backspace button on the onscreen keyboard on your remote.</li>
-				<li>Now type <span class="code portalurl">http://ez4u.pw</span> into the text box.</li>
-				<li>Press the return key on the remote to hide the onscreen keyboard.</li>
-				<li>Press Ok on the text box.</li>
-				<li>Press the return key on the remote to return to the profile settings screen.</li>
-				<li>Now select the STB Configuration settings.</li>
-				<li>Open the MAC-address setting.</li>
-				<li>Press the return key on your remote to hide the onscreen keyboard.</li>
-				<li>Press and hold the right arrow key on your remote to move the text cursor to the end of the MAC address.</li>
-				<li>Press the OK button on your remote to bring back the onscreen keyboard.</li>
-				<li>Erase the existing MAC address by pressing and holding the backspace button on the onscreen keyboard on your remote.</li>
-				<li>Now type <span class="code macadd">[Your MAC Address]</span> into the text box.</li>
-				<li>Press the return key on the remote to hide the onscreen keyboard.</li>
-				<li>Press Ok on the text box.</li>
-				<li>Repeatedly press the return key on the remote until you return to the STB Emulator main menu.</li>
+				<li>If there are no profiles listed on your program, press the Add Profile button. If there is a profile listed, delete it.</li>
+				<li class="blue-only combo-only">In the profile settings, select Profile Name.</li>
+				<li class="blue-only combo-only">Press the return key on your remote to hide the onscreen keyboard.</li>
+				<li class="blue-only combo-only">Press and hold the right arrow key on your remote to move the text cursor to the end of the name.</li>
+				<li class="blue-only combo-only">Press the OK button on your remote to bring back the onscreen keyboard.</li>
+				<li class="blue-only combo-only">Erase the existing name by pressing and holding the backspace button on the onscreen keyboard on your remote.</li>
+				<li class="blue-only combo-only">Now type <span class="code profilename">Blue IPTV Frog</span> into the text box.</li>
+				<li class="blue-only combo-only">Press the return key on the remote to hide the onscreen keyboard.</li>
+				<li class="blue-only combo-only">Press Ok on the text box.</li>
+				<li class="blue-only combo-only">From the portal settings, select the Portal URL.</li>
+				<li class="blue-only combo-only">Press the return key on your remote to hide the onscreen keyboard.</li>
+				<li class="blue-only combo-only">Press and hold the right arrow key on your remote to move the text cursor to the end of the URL.</li>
+				<li class="blue-only combo-only">Press the OK button on your remote to bring back the onscreen keyboard.</li>
+				<li class="blue-only combo-only">Erase the existing URL by pressing and holding the backspace button on the onscreen keyboard on your remote.</li>
+				<li class="blue-only combo-only">Now type <span class="code portalurl">http://blue.iptvfrog.com</span> into the text box.</li>
+				<li class="blue-only combo-only">Press the return key on the remote to hide the onscreen keyboard.</li>
+				<li class="blue-only combo-only">Press Ok on the text box.</li>
+				<li class="blue-only combo-only">Press the return key on the remote to return to the profile settings screen.</li>
+				<li class="blue-only combo-only">Now select the STB Configuration settings.</li>
+				<li class="blue-only combo-only">Open the MAC-address setting.</li>
+				<li class="blue-only combo-only">Press the return key on your remote to hide the onscreen keyboard.</li>
+				<li class="blue-only combo-only">Press and hold the right arrow key on your remote to move the text cursor to the end of the MAC address.</li>
+				<li class="blue-only combo-only">Press the OK button on your remote to bring back the onscreen keyboard.</li>
+				<li class="blue-only combo-only">Erase the existing MAC address by pressing and holding the backspace button on the onscreen keyboard on your remote.</li>
+				<li class="blue-only combo-only">Now type <span class="code macadd">[Your MAC Address]</span> into the text box.</li>
+				<li class="blue-only combo-only">Press the return key on the remote to hide the onscreen keyboard.</li>
+				<li class="blue-only combo-only">Press Ok on the text box.</li>
+				<li class="blue-only">Repeatedly press the return key on the remote until you return to the STB Emulator main menu.</li>
+				<li class="combo-only">Press the return key on the remote until you return to the STB Emulator profiles menu.</li>
+				<li class="combo-only">Press the Add Profile button.</li>
+				<li class="yellow-only combo-only">In the profile settings, select Profile Name.</li>
+				<li class="yellow-only combo-only">Press the return key on your remote to hide the onscreen keyboard.</li>
+				<li class="yellow-only combo-only">Press and hold the right arrow key on your remote to move the text cursor to the end of the name.</li>
+				<li class="yellow-only combo-only">Press the OK button on your remote to bring back the onscreen keyboard.</li>
+				<li class="yellow-only combo-only">Erase the existing name by pressing and holding the backspace button on the onscreen keyboard on your remote.</li>
+				<li class="yellow-only combo-only">Now type <span class="code profilename">Yellow IPTV Frog</span> into the text box.</li>
+				<li class="yellow-only combo-only">Press the return key on the remote to hide the onscreen keyboard.</li>
+				<li class="yellow-only combo-only">Press Ok on the text box.</li>
+				<li class="yellow-only combo-only">From the portal settings, select the Portal URL.</li>
+				<li class="yellow-only combo-only">Press the return key on your remote to hide the onscreen keyboard.</li>
+				<li class="yellow-only combo-only">Press and hold the right arrow key on your remote to move the text cursor to the end of the URL.</li>
+				<li class="yellow-only combo-only">Press the OK button on your remote to bring back the onscreen keyboard.</li>
+				<li class="yellow-only combo-only">Erase the existing URL by pressing and holding the backspace button on the onscreen keyboard on your remote.</li>
+				<li class="yellow-only combo-only">Now type <span class="code portalurl">http://yellow.iptvfrog.com</span> into the text box.</li>
+				<li class="yellow-only combo-only">Press the return key on the remote to hide the onscreen keyboard.</li>
+				<li class="yellow-only combo-only">Press Ok on the text box.</li>
+				<li class="yellow-only combo-only">Press the return key on the remote to return to the profile settings screen.</li>
+				<li class="yellow-only combo-only">Now select the STB Configuration settings.</li>
+				<li class="yellow-only combo-only">Open the MAC-address setting.</li>
+				<li class="yellow-only combo-only">Press the return key on your remote to hide the onscreen keyboard.</li>
+				<li class="yellow-only combo-only">Press and hold the right arrow key on your remote to move the text cursor to the end of the MAC address.</li>
+				<li class="yellow-only combo-only">Press the OK button on your remote to bring back the onscreen keyboard.</li>
+				<li class="yellow-only combo-only">Erase the existing MAC address by pressing and holding the backspace button on the onscreen keyboard on your remote.</li>
+				<li class="yellow-only combo-only">Now type <span class="code macadd">[Your MAC Address]</span> into the text box.</li>
+				<li class="yellow-only combo-only">Press the return key on the remote to hide the onscreen keyboard.</li>
+				<li class="yellow-only combo-only">Press Ok on the text box.</li>
+				<li class="yellow-only combo-only">Repeatedly press the return key on the remote until you return to the STB Emulator main menu.</li>
 				<li>Press the menu key on your remote.</li>
 				<li>Select Exit from the drop-down menu to close the STB Emulator.</li>
 				<li>Reopen the STB Emulator and your TV menu should now display.</li>

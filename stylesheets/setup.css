@@ -33,6 +33,15 @@
 	cursor:pointer;
 }
 
+#packageType div.packagecontainer div.package.combo {
+	width:100% !important;
+	margin-top:10px;
+}
+
+#packageType div.packagecontainer div.package.combo:hover {
+	color:black;
+}
+
 #packageType div.packagecontainer div.package:hover {
 	background-color:white;
 }
@@ -169,7 +178,7 @@ iframe {
 	text-align:center;
 }
 
-#stbconfig #note {
+#note {
 	width: 80%;
 	margin: auto;
 	background-color: #CCCCCC;
@@ -211,11 +220,15 @@ section a {
 	display:none;
 }
 
+.print-only {
+	display:none !important;
+}
+
 @media print {
 	body {
 		background:none !important;
 	}
-	#splash, #mainsection, img, footer, #video, iframe, header, #show-steps-button {
+	#splash, #mainsection, img, footer, #video, iframe, header, #show-steps-button, .no-print {
 		display:none !important;
 	}
 	section.white, section.blue {
@@ -231,11 +244,8 @@ section a {
 		background-color:white !important;
 		border:2px solid black !important;
 	}
-	#amazon-steps {
+	.print-only, #downloading div#kodi-install, #downloading div#android-install, #downloading div#amazon-install {
 		display:block !important;
-	}
-	#follow {
-		display:inline !important;
 	}
 }
 

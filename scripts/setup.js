@@ -126,23 +126,64 @@ function changePortal() {
 }
 
 function loadURL(portal) {
-	document.getElementsByClassName('portalurl')[0].textContent = portal;
 	document.getElementById('packageType').style.display = 'none';
+	var blueOnly = document.getElementsByClassName('blue-only');
+	var yellowOnly = document.getElementsByClassName('yellow-only');
+	var comboOnly = document.getElementsByClassName('combo-only');
+	var i = 0;
+	do {
+		blueOnly[i].style.display = 'none';
+		i++;
+	} while (i < blueOnly.length);
+	i = 0;
+	do {
+		yellowOnly[i].style.display = 'none';
+		i++;
+	} while (i < yellowOnly.length);
+	i = 0;
+	do {
+		comboOnly[i].style.display = 'none';
+		i++;
+	} while (i < comboOnly.length);
 	if (portal == 'blue') {
-		var portalURL = 'http://blue.iptvfrog.com';
 		document.getElementById('frogselectionblue').selected = 'selected';
-		document.getElementById('help').className = 'white';
-		document.getElementsByClassName('profilename')[0].textContent = 'Blue IPTV Frog';
+		i = 0;
+		do {
+			blueOnly[i].style.display = 'list-item';
+			i++;
+		} while (i < blueOnly.length);
 	} else if (portal == 'yellow') {
-		var portalURL = 'http://yellow.iptvfrog.com';
 		document.getElementById('frogselectionyellow').selected = 'selected';
-		document.getElementById('help').className = 'blue';
-		document.getElementsByClassName('profilename')[0].textContent = 'Yellow IPTV Frog';
+		i = 0;
+		do {
+			yellowOnly[i].style.display = 'list-item';
+			i++;
+		} while (i < yellowOnly.length);
+	} else if (portal == 'combo') {
+		document.getElementById('frogselectioncombo').selected = 'selected';
+		i = 0;
+		do {
+			comboOnly[i].style.display = 'list-item';
+			i++;
+		} while (i < comboOnly.length);
 	} else {
 		location.reload();
 		return;
 	}
-	document.getElementsByClassName('portalurl')[0].textContent = portalURL;
+	changeDevice();
+}
+
+function changeDevice() {
+	var e = document.getElementById('devicetype');
+	var device = e.options[e.selectedIndex].value;
+	loadDevice(device);
+}
+
+function loadDevice(device) {
+	document.getElementById('kodi-install').className = 'hide';
+	document.getElementById('android-install').className = 'hide';
+	document.getElementById('amazon-install').className = 'hide';
+	document.getElementById(device + '-install').className = '';
 }
 
 function showAmazon() {
