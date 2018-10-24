@@ -41,20 +41,10 @@ function getPrams() {
 	
 	var pramString = getParameterByName('r');
 	
-	if (pramString == null) {
-		window.location.replace("http://iptvfrog.com");
+	if (pramString == null || pramString.length != 7) {
+		document.getElementById('renew-order-table').parentNode.removeChild(document.getElementById('renew-order-table'));
+		document.getElementById('renew-get-info-box').style.display = 'block';
 		return;
-	}
-	
-	if (pramString.length != 7) {
-		if (pramString == 'n') {
-			document.getElementById('renew-order-table').parentNode.removeChild(document.getElementById('renew-order-table'));
-			document.getElementById('renew-get-info-box').style.display = 'block';
-			return;
-		} else {
-			window.location.replace("http://iptvfrog.com");
-			return;
-		}
 	}
 	
 	document.getElementById('renew-get-info-box').parentNode.removeChild(document.getElementById('renew-get-info-box'));
@@ -76,7 +66,7 @@ function getPrams() {
 		currentPackage.textContent = 'Combo Subscription (Blue & Yellow)';
 		currentPackage.className = 'c'
 	} else {
-		window.location.replace("http://iptvfrog.com");
+		window.location.replace("http://iptvfrog.com/renew");
 		return;
 	}
 	
