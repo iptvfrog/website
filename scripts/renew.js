@@ -67,11 +67,11 @@ function getPrams() {
 	
 	var pramString = getParameterByName('r');
 	
-	/*if (pramString == null || pramString.length != 7) {
+	if (pramString == null || pramString.length < 7) {
 		document.getElementById('renew-order-table').parentNode.removeChild(document.getElementById('renew-order-table'));
 		document.getElementById('renew-get-info-box').style.display = 'block';
 		return;
-	}*/
+	}
 	
 	document.getElementById('renew-get-info-box').parentNode.removeChild(document.getElementById('renew-get-info-box'));
 	
