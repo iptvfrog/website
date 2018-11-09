@@ -44,6 +44,14 @@ table tr td.table-header {
 	font-size:125%;
 }
 
+table#renew-get-info-box.none #blue-only, table#renew-get-info-box.y #blue-only, table#renew-order-table.y #blue-only {
+	display:none;
+}
+
+table#renew-get-info-box.none #yellow-only, table#renew-get-info-box.b #yellow-only, table#renew-order-table.b #yellow-only {
+	display:none;
+}
+
 .container {
 	display: block;
 	position: relative;

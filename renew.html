@@ -53,18 +53,26 @@
 					}
 				</style>
 			</noscript>
-			<table cellspacing="10px;" id="renew-order-table">
+			<table cellspacing="10px;" id="renew-order-table" class="b">
 				<tr>
 					<td colspan="2" class="table-header">
 						Account Details
 					</td>
 				</tr>
-				<tr>
+				<tr id="blue-only">
 					<td>
 						<label>MAC Address: </label>
 					</td>
 					<td>
 						<span id="order-mac">XX:XX:XX:XX:XX:XX</span>
+					</td>
+				</tr>
+				<tr id="yellow-only">
+					<td>
+						<label>Username: </label>
+					</td>
+					<td>
+						<span id="order-username">N/A</span>
 					</td>
 				</tr>
 				<tr>
@@ -153,7 +161,7 @@
 					</td>
 				</tr>
 			</table>
-			<table cellspacing="10px;" id="renew-get-info-box">
+			<table cellspacing="10px;" id="renew-get-info-box" class="none">
 				<tr>
 					<td colspan="2">
 						To improve the speed of the renewal process, we have changed the way that you renew your account. In the days before your IPTV Frog subscription expires, you should receive an email from us saying that your account is about to expire. In that email, there will be renewal options and link for each option. You simply need to click that link and your account information will be automatically prefilled into our renewal system. You then need to review that the order information is correct and can proceed to the payment options.
@@ -171,24 +179,33 @@
 				</tr>
 				<tr>
 					<td>
-						<b>Your current MAC address:</b>
-						<i onclick="alert('This information can be found in the email that you received when your originally signed up or can be found in your STB Emulator settings.')" style="cursor:pointer">(Where do I find this?)</i>
+						<b>What subscription package are you using?</b>
 					</td>
 					<td>
-						XX:XX:XX:XX:<input type="text" id="mac-address-1" maxLength="2" size="2" placeholder="XX"/>:<input type="text" id="mac-address-2" maxLength="2" size="2" placeholder="XX"/>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<b>What subscription package is this MAC address linked to?</b>
-					</td>
-					<td>
-						<select id="confirm-service">
+						<select id="confirm-service" onchange="getInfo()">
 							<option selected disabled hidden></option>
 							<option value="b">Blue Frog Subscription</option>
 							<option value="y">Yellow Frog Subscription</option>
 							<option value="c">Combo Subscription</option>
 						</select>
+					</td>
+				</tr>
+				<tr id="blue-only">
+					<td>
+						<b>Your current MAC address:</b>
+						<i onclick="alert('This information can be found in the email that you received when your originally signed up or can be found in your STB Emulator settings.')" style="cursor:pointer">(Help)</i>
+					</td>
+					<td>
+						XX:XX:XX:XX:<input type="text" id="mac-address-1" maxLength="2" size="2" placeholder="XX"/>:<input type="text" id="mac-address-2" maxLength="2" size="2" placeholder="XX"/>
+					</td>
+				</tr>
+				<tr id="yellow-only">
+					<td>
+						<b>Your username:</b>
+						<i onclick="alert('This information can be found in the email that you received when your originally signed up.')" style="cursor:pointer">(Help)</i>
+					</td>
+					<td>
+						<input type="text" id="username" maxLength="10" size="10" placeholder="iptvuser1"/>
 					</td>
 				</tr>
 				<tr>

@@ -1,21 +1,37 @@
+function getInfo() {
+	var subPackage = document.getElementById('confirm-service').options[document.getElementById('confirm-service').selectedIndex].value;
+	if (subPackage.length != 1) {
+		subPackage = 'none';
+	}
+	document.getElementById('renew-get-info-box').className = subPackage;
+}
+
 function fillOrder() {
 	var macAddress1 = document.getElementById('mac-address-1').value;
 	var macAddress2 = document.getElementById('mac-address-2').value;
+	var username = document.getElementById('username').value;
 	var subPackage = document.getElementById('confirm-service').options[document.getElementById('confirm-service').selectedIndex].value;
 	var error = false;
 	
-	if (macAddress1.length != 2) {
+	if (macAddress1.length != 2 && subPackage != 'y') {
 		document.getElementById('mac-address-1').className = 'error';
 		error = true;
 	} else {
 		document.getElementById('mac-address-1').className = '';
 	}
 	
-	if (macAddress2.length != 2) {
+	if (macAddress2.length != 2 && subPackage != 'y') {
 		document.getElementById('mac-address-2').className = 'error';
 		error = true;
 	} else {
 		document.getElementById('mac-address-2').className = '';
+	}
+	
+	if (username.length < 4 && subPackage != 'b') {
+		document.getElementById('username').className = 'error';
+		error = true;
+	} else {
+		document.getElementById('username').className = '';
 	}
 	
 	if (subPackage != 'y' && subPackage != 'b' && subPackage != 'c') {
@@ -29,32 +45,45 @@ function fillOrder() {
 		return;
 	}
 	
-	var url = 'http://iptvfrog.com/renew?r=' + macAddress1 + macAddress2 + subPackage + subPackage + '1';
+	if (subPackage == 'b') {
+		username = '';
+	}
+	if (subPackage == 'y') {
+		macAddress1 = '00';
+		macAddress2 = '00';
+	}
+	
+	var url = 'http://iptvfrog.com/renew?r=' + subPackage + subPackage + '1' + macAddress1 + macAddress2 + username;
 	window.location.replace(url);
 }
 
 function getPrams() {
 	var macAddress = document.getElementById('order-mac');
+	var macAddress = document.getElementById('order-mac');
+	var username = document.getElementById('order-username');
 	var currentPackage = document.getElementById('order-current');
 	var newPackage = document.getElementById('order-service');
 	var renewLength = document.getElementById('order-duration');
 	
 	var pramString = getParameterByName('r');
 	
-	if (pramString == null || pramString.length != 7) {
+	/*if (pramString == null || pramString.length != 7) {
 		document.getElementById('renew-order-table').parentNode.removeChild(document.getElementById('renew-order-table'));
 		document.getElementById('renew-get-info-box').style.display = 'block';
 		return;
-	}
+	}*/
 	
 	document.getElementById('renew-get-info-box').parentNode.removeChild(document.getElementById('renew-get-info-box'));
 	
-	var macAdd = pramString.charAt(0) + pramString.charAt(1) + ":" + pramString.charAt(2) + pramString.charAt(3);
-	var cPack = pramString.charAt(4);
-	var nPack = pramString.charAt(5);
-	var rLeng = pramString.charAt(6);
+	var cPack = pramString.charAt(0);
+	var nPack = pramString.charAt(1);
+	var rLeng = pramString.charAt(2);
+	var macAdd = pramString.charAt(3) + pramString.charAt(4) + ":" + pramString.charAt(5) + pramString.charAt(6);
+	var uName = '';
+	uName = pramString.slice(7);
 	
 	macAddress.textContent = 'XX:XX:XX:XX:' + macAdd;
+	username.textContent = uName;
 	
 	if (cPack == 'b') {
 		currentPackage.textContent = 'Blue Frog Subscription';
@@ -70,6 +99,8 @@ function getPrams() {
 		return;
 	}
 	
+	document.getElementById('renew-order-table').className = cPack;
+	
 	if (nPack == 'b') {
 		newPackage.selectedIndex = 0;
 	} else if (nPack == 'y') {
@@ -84,7 +115,7 @@ function getPrams() {
 		} else if (cPack == 'c') {
 			newPackage.selectedIndex = 2;
 		} else {
-			window.location.replace("http://iptvfrog.com");
+			window.location.replace("http://iptvfrog.com/renew");
 			return;
 		}
 	}
@@ -96,6 +127,12 @@ function getPrams() {
 	} else {
 		renewLength.selectedIndex = 0;
 	}
+	
+	if (nPack == 'y' && uName.length < 1) {
+		window.location.replace("http://iptvfrog.com/renew");
+		return;
+	}
+	
 	updateTotal();
 	checkWarning();
 }
@@ -151,6 +188,7 @@ function updateTotal() {
 
 function placeOrder() {
 	var macAddress = document.getElementById('order-mac').textContent;
+	var username = document.getElementById('order-username').textContent;
 	var currentPackage = document.getElementById('order-current').className;
 	var newPackage = document.getElementById('order-service').options[document.getElementById('order-service').selectedIndex].value;
 	var renewLength = document.getElementById('order-duration').options[document.getElementById('order-duration').selectedIndex].value;
@@ -179,7 +217,13 @@ function placeOrder() {
 		alert('Unknown Error! Please contact support.');
 	}
 	
-	paypalOrderCode.value = macAddress;
+	if (currentPackage == 'b' || (currentPackage == 'c' && newPackage.charAt(0) == 'b')) {
+		username = 'N/A';
+	} else if (currentPackage == 'y' || (currentPackage == 'c' && newPackage.charAt(0) == 'y')) {
+		macAddress = 'N/A'
+	}
+	
+	paypalOrderCode.value = macAddress + ' Username: ' + username;
 	
 	if (newPackage.charAt(0) == currentPackage || newPackage.charAt(0) == 'c') {
 		paypalOrderCode.value += ' *RENEW*';
@@ -196,6 +240,8 @@ function placeOrder() {
 	} else {
 		document.getElementsByClassName('checkmark')[0].id = 'missing';
 	}
+	alert(paypalOrderCode.value);
 }
 
 getPrams();
+getInfo();

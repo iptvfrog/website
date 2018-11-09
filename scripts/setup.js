@@ -30,13 +30,13 @@ function loadPage() {
 		document.getElementById('loadingtext').textContent = 'Please complete one of the options below to generate your instructions';
 		document.getElementById('enterMAC').style.display = 'block';
 	} else {
-		setTimeout(function(){
+		//setTimeout(function(){
 			var splash = document.getElementById('splash');
 			if (splash) {
 				splash.parentNode.removeChild(splash);
 				document.getElementById('packageType').className = '';
 			}
-		},2000);
+		//},2000);
 	}
 }
 
