@@ -180,7 +180,7 @@ function changeDevice() {
 }
 
 function loadDevice(device) {
-	document.getElementById('kodi-install').className = 'hide';
+	//document.getElementById('kodi-install').className = 'hide';
 	document.getElementById('android-install').className = 'hide';
 	document.getElementById('amazon-install').className = 'hide';
 	document.getElementById(device + '-install').className = '';
