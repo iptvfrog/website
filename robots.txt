@@ -1,8 +1,8 @@
 User-agent: *
-Disallow: /download
-Disallow: /images
-Disallow: /scripts
-Disallow: /stylesheets
+Disallow: /images/*
+Disallow: /channellist/*
+Disallow: /scripts/*
+Disallow: /stylesheets/*
 Disallow: /404
 Disallow: /cancel
 Disallow: /success
@@ -11,3 +11,4 @@ Disallow: /webhp
 Disallow: /renew
 Disallow: /terms
 Disallow: /privacy
+Disallow: /setup
