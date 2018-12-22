@@ -104,6 +104,20 @@ h2, .specs {
 	width:20%;
 	font-size:200%;
 }
+
+#orderRemote section article {
+	flex:1;
+	margin:0px;
+	padding:0px;
+	box-sizing:border-box;
+	text-align:center;
+}
+
+#orderRemote section {
+	width:100%;
+	display:flex;
+	padding:30px;
+}
  
 @media only screen and (max-width: 768px) {
 	article.split {

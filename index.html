@@ -213,10 +213,10 @@
 						<tr>
 							<td colspan="2">
 								<input type="text" id="referralinput" class="input"><br><br>
-								<button onclick="skipReferral()" id="skipreferral">
+								<button onclick="addReferral(false)" id="skipreferral">
 									<h2>Skip X</h2>
 								</button>
-								<button onclick="inputReferral()" id="referralready" disabled>
+								<button onclick="addReferral(true)" id="referralready" disabled>
 									<h2>Next ></h2>
 								</button><br><br>
 								<div id="warnings">
@@ -236,10 +236,10 @@
 						<tr>
 							<td colspan="2">
 								<input type="text" maxlength="14" id="promocodeinput" class="input"><br><br>
-								<button onclick="skipPromoCode()" id="skippromocode">
+								<button onclick="addPromo(false)" id="skippromocode">
 									<h2>Skip X</h2>
 								</button>
-								<button onclick="inputPromoCode()" id="promocodeready" disabled>
+								<button onclick="addPromo(true)" id="promocodeready" disabled>
 									<h2>Next ></h2>
 								</button><br><br>
 								<div id="warnings">

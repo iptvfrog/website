@@ -10,28 +10,33 @@ function inputPhoneNumber() {
 	toggle(2);
 }
 
-function inputReferral() {
-	var referralcode = document.getElementById('referralinput').value;
-	var orderCode = document.getElementById('ordercode');
-	orderCode.value = orderCode.value + ' Referral: ' + referralcode;
+function addReferral(answer) {
+	if (answer) {
+		var referralcode = document.getElementById('referralinput').value;
+		var orderCode = document.getElementById('ordercode');
+		orderCode.value = orderCode.value + ' Referral: ' + referralcode;
+	}
 	toggle(3);
 }
 
-function skipReferral() {
-	toggle(3);
-}
-
-function inputPromoCode() {
-	var promocode = document.getElementById('promocodeinput').value;
-	var orderCode = document.getElementById('ordercode');
-	orderCode.value = orderCode.value + ' Promo: ' + promocode;
-	document.getElementById('restartOrderBtn').style.display = 'none';
+function addPromo(answer) {
+	if (answer) {
+		var promocode = document.getElementById('promocodeinput').value;
+		var orderCode = document.getElementById('ordercode');
+		orderCode.value = orderCode.value + ' Promo: ' + promocode;
+	}
 	toggle(4);
 }
 
-function skipPromoCode() {
+function addRemote(answer) {
+	var orderID = document.getElementById('orderProcessingId');
+	if (answer) {
+		orderID.value = "5FKVA33SZ6A42";
+	} else {
+		orderID.value = "TXQLRPX8L4KTW";
+	}
 	document.getElementById('restartOrderBtn').style.display = 'none';
-	toggle(4);
+	toggle(5);
 }
 
 function promocodeFormat(input) {
@@ -86,7 +91,8 @@ function toggle(screen) {
 	// 1 = Phone number
 	// 2 = Referral
 	// 3 = Promocode
-	// 4 = Confirmation
+	// 4 = Add remote
+	// 5 = Confirmation
 	var screens = document.getElementsByClassName('order-input-screen');
 	for (var i = 0; i < screens.length; i++) {
 		if (i == screen) {

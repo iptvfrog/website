@@ -133,10 +133,10 @@
 						<tr>
 							<td colspan="2">
 								<input type="text" id="referralinput" class="input"><br><br>
-								<button onclick="skipReferral()" id="skipreferral">
+								<button onclick="addReferral(false)" id="skipreferral">
 									<h2>Skip X</h2>
 								</button>
-								<button onclick="inputReferral()" id="referralready" disabled>
+								<button onclick="addReferral(true)" id="referralready" disabled>
 									<h2>Next ></h2>
 								</button><br><br>
 								<div id="warnings">
@@ -156,15 +156,43 @@
 						<tr>
 							<td colspan="2">
 								<input type="text" maxlength="14" id="promocodeinput" class="input"><br><br>
-								<button onclick="skipPromoCode()" id="skippromocode">
+								<button onclick="addPromo(false)" id="skippromocode">
 									<h2>Skip X</h2>
 								</button>
-								<button onclick="inputPromoCode()" id="promocodeready" disabled>
+								<button onclick="addPromo(true)" id="promocodeready" disabled>
 									<h2>Next ></h2>
 								</button><br><br>
 								<div id="warnings">
 									<div id="hideForRenewIPTV">*** Promocodes are subject to verification. Invalid promocodes will not be applied to the order. Promocodes will not appear on your order receipt. ***</div>
 								</div>
+							</td>
+						</tr>
+					</table>
+					
+					<table id="orderRemote" class="order-input-screen">
+						<tr>
+							<td colspan="2">
+								<section id="box" class="white">
+									<article class="split">
+										<img id="remoteimage" src="images/box/remote.jpg"/>
+									</article>
+									<article class="split">
+										<h2><u>KEYBOARD REMOTE</u></h2>
+										<h3>QWERTY keyboard</h3>
+										<h3>Standard remote features</h3>
+										<h3>Wireless <i>air mouse</i> technology</h3>
+									</article>
+								</section>
+								<h3>Would you like to add a keyboard remote with your order?</h3>
+							</td>
+						</tr>
+						<tr>
+							<td onclick="addRemote(true)" class="btn">
+								<h2>Yes</h2>
+								<span class="price">+$15.00 USD</span>
+							</td>
+							<td onclick="addRemote(false)" class="btn">
+								<h2>No</h2>
 							</td>
 						</tr>
 					</table>
@@ -197,9 +225,6 @@
 							<div id="orderCodesHidden">
 								<input type="hidden" name="cmd" value="_s-xclick">
 								<input type="hidden" name="hosted_button_id" id="orderProcessingId" value="TXQLRPX8L4KTW">
-								<select name="os0" style="display:none" id="iptvduration">
-									<option value="1 Month">1 Month $99.99 USD</option>
-								</select>
 								<input type="hidden" name="on1" value="Phone Number">
 								<input type="text" id="ordercode" name="os1" readonly>
 								<input type="hidden" name="currency_code" value="USD">

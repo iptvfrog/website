@@ -37,10 +37,6 @@ function inputOrderIPTVCustomerType(selection) {
 		toggle(1);
 	} else if (selection == 'renew') {
 		window.location.href = 'http://iptvfrog.com/renew?r=n';
-		/*customer = 'EXISTING';
-		document.getElementById('hideForRenewIPTV').style.display = 'none';
-		document.getElementById('newrecommend').style.display = 'none';
-		confirmOrderType = ' renew your IPTV subscription for an additional';*/
 	} else {
 		return;
 	}
@@ -74,26 +70,21 @@ function inputPhoneNumber() {
 	}
 }
 
-function inputReferral() {
-	var referralcode = document.getElementById('referralinput').value;
-	var orderCode = document.getElementById('ordercode');
-	orderCode.value = orderCode.value + ' Referral: ' + referralcode;
+function addReferral(answer) {
+	if (answer) {
+		var referralcode = document.getElementById('referralinput').value;
+		var orderCode = document.getElementById('ordercode');
+		orderCode.value = orderCode.value + ' Referral: ' + referralcode;
+	}
 	toggle(6);
 }
 
-function skipReferral() {
-	toggle(6);
-}
-
-function inputPromoCode() {
-	var promocode = document.getElementById('promocodeinput').value;
-	var orderCode = document.getElementById('ordercode');
-	orderCode.value = orderCode.value + ' Promo: ' + promocode;
-	document.getElementById('restartOrderBtn').style.display = 'none';
-	toggle(7);
-}
-
-function skipPromoCode() {
+function addPromo(answer) {
+	if (answer) {
+		var promocode = document.getElementById('promocodeinput').value;
+		var orderCode = document.getElementById('ordercode');
+		orderCode.value = orderCode.value + ' Promo: ' + promocode;
+	}
 	document.getElementById('restartOrderBtn').style.display = 'none';
 	toggle(7);
 }
