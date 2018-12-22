@@ -80,6 +80,13 @@ div#importantnote b {
 	text-transform:uppercase;
 }
 
+div.warningnote {
+	background-color:var(--red-color);
+	color:white;
+	margin-top:5px;
+	padding:10px;
+}
+
 .bluefrog {
 	color:var(--blue-color);
 }
